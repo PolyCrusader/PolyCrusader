@@ -30,6 +30,7 @@
 
           nodePackages.typescript
           nodePackages.typescript-language-server
+          nodePackages.nodemon
           node2nix
         ];
       };
