@@ -1,7 +1,7 @@
 {
   inputs = {
     # You can override nixpkgs to use the latest set of node packages
-    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     systems.url = "github:nix-systems/default";
   };
 
@@ -19,7 +19,7 @@
     devShells = eachSystem (pkgs: {
       default = pkgs.mkShell {
         buildInputs = with pkgs; [
-          nodejs
+          nodejs_21
           # You can set the major version of Node.js to a specific one instead
           # of the default version
           # pkgs.nodejs-19_x
