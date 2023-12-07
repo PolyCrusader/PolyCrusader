@@ -59,6 +59,9 @@
 
 }
 
+.Card :hover{
+    transform: scale(1.1);
+}
 
 
 .Card img{
@@ -82,3 +85,31 @@
     
 
 
+.PopUp{
+    height: 500px;
+    width: 500px;
+    z-index: 999;
+    background-color: white;
+    border-radius: 40px;
+    border: 1px solid black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+
+.PopUp img{
+    
+    margin: 20px;
+}
+
+
+
+.close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 20px;
+    cursor: pointer;
+}

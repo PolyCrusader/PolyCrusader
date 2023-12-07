@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import './TierList.scss';
+import PopUp from './PopUp';
 
 function TierList() {
   const [stockage, setStockage] = useState([]);
@@ -10,6 +11,7 @@ function TierList() {
   const [C, setC] = useState([]);
   const [D, setD] = useState([]);
   const [draggedCard, setDraggedCard] = useState([]);
+  const [selectedCard, setSelectedCard] = useState(null);
 
   class Card {
     constructor(name, image,tier,id) {
@@ -17,6 +19,7 @@ function TierList() {
       this.image = image;
       this.tier =tier;
       this.id = id;
+      this.description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.";
     }
   }
 
@@ -105,16 +108,21 @@ function TierList() {
     setDraggedCard(card);
   }
 
+ 
+  function onClose(){
+    setSelectedCard(null);
+  }
   
 
   return (
     <div>
       <h1>TierList</h1>
+      {selectedCard && <PopUp card={selectedCard} onClose={onClose}/>}
       <div className="TierList">
         <div className="S" onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, 'S')}>
         <div className='Tier'><h2>S</h2></div>
           {S.map((card) => (
-            <div className="Card" key={card.name} onDrag={() => handleDragStart(card)}>
+            <div className="Card" key={card.name} onDrag={() => handleDragStart(card)} onClick={() => setSelectedCard(card)}>
               <img src={card.image} alt={card.name} />
             </div>
           ))}
@@ -122,7 +130,7 @@ function TierList() {
         <div className="A" onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, 'A')}>
           <div className='Tier'><h2>A</h2></div>
           {A.map((card) => (
-            <div className="Card" key={card.name} onDrag={() => handleDragStart(card)}>
+            <div className="Card" key={card.name} onDrag={() => handleDragStart(card)} onClick={() => setSelectedCard(card)}>
               <img src={card.image} alt={card.name} />
             </div>
           ))}
@@ -130,7 +138,7 @@ function TierList() {
         <div className="B" onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, 'B')}>
         <div className='Tier'><h2>B</h2></div>
           {B.map((card) => (
-            <div className="Card" key={card.name} onDrag={() => handleDragStart(card)}>
+            <div className="Card" key={card.name} onDrag={() => handleDragStart(card)} onClick={() => setSelectedCard(card)}>
               <img src={card.image} alt={card.name} />
             </div>
           ))}
@@ -138,7 +146,7 @@ function TierList() {
         <div className="C" onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, 'C')}>
         <div className='Tier'><h2>C</h2></div>
           {C.map((card) => (
-            <div className="Card" key={card.name} onDrag={() => handleDragStart(card)}>
+            <div className="Card" key={card.name} onDrag={() => handleDragStart(card)} onClick={() => setSelectedCard(card)}>
               <img src={card.image} alt={card.name} />
             </div>
           ))}
@@ -146,16 +154,16 @@ function TierList() {
         <div className="D" onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, 'D')}>
         <div className='Tier'><h2>D</h2></div>
           {D.map((card) => (
-            <div className="Card" key={card.name} onDrag={() => handleDragStart(card)}>
+            <div className="Card" key={card.name} onDrag={() => handleDragStart(card)} onClick={() => setSelectedCard(card)}>
               <img src={card.image} alt={card.name} />
             </div>
           ))}
         </div>
 
-        <div className="StockageCard" onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, 'StockageCard')}>
+        <div className="StockageCard" onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, 'StockageCard')} >
           {stockage.map((card) => (
-            <div className="Card" key={card.name} onDrag={() => handleDragStart(card)}>
-              <img src={card.image} alt={card.name} />
+            <div className="Card" key={card.name} onDrag={() => handleDragStart(card)} onClick={() => setSelectedCard(card)} >
+              <img src={card.image} alt={card.name}  />
             </div>
           ))}
         </div>
