@@ -37,23 +37,26 @@ function TierList() {
     if (oldTier !== 'StockageCard') {
         switch (oldTier) {
           case 'S':
-            setS((S) => S.filter((c) => c !== card));
+            setS((S) => S.filter((c) => c.name !== card.name));
             break;
           case 'A':
-            setA((A) => A.filter((c) => c !== card));
+            setA((A) => A.filter((c) => c.name !== card.name));
             break;
           case 'B':
-            setB((B) => B.filter((c) => c !== card));
+            setB((B) => B.filter((c) => c.name !== card.name));
             break;
           case 'C':
-            setC((C) => C.filter((c) => c !== card));
+            setC((C) => C.filter((c) => c.name !== card.name));
             break;
           case 'D':
-            setD((D) => D.filter((c) => c !== card));
+            setD((D) => D.filter((c) => c.name !== card.name));
             break;
           default:
             break;
         }
+      }
+      else{
+        setStockage((stockage) => stockage.filter((c) => c.name !== card.name));
       }
     
     card.tier = tier;
