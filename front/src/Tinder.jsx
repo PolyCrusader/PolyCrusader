@@ -6,6 +6,11 @@ const Tinder = () => {
         const [isResultPage, setIsResultPage] = useState(false);
         const [SubmittedAnswers, setSubmittedAnswers] = useState(null)
 
+
+
+
+        
+
         const handleSubmit = (value) => {
             console.log("I HAVE RECEIVED THE VALUE", value);
                 setSubmittedAnswers(value);
