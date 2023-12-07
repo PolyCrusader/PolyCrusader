@@ -4,6 +4,7 @@ import Page2 from "./Page2";
 import HeaderHome from "./HeaderHome";
 import TierList from "./Tierlist";
 import Tinder from "./Tinder";
+import Page404 from "./Page404";
 
 
 
