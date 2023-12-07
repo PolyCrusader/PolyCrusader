@@ -1,0 +1,115 @@
+.TierList{
+    border: 1px solid black;
+    width: 80vw;
+}
+
+.S{
+    border: 1px solid black;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; 
+    flex-direction: row;
+
+}
+.A{
+    border: 1px solid black;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; 
+}
+.B{
+    border: 1px solid black;
+    min-height: 120px;
+    
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; 
+}
+.C{
+    border: 1px solid black;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; 
+}
+.D{
+    border: 1px solid black;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; 
+}
+
+
+
+.StockageCard{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; 
+    border: 1px solid black;
+}
+   
+
+   
+.Card{
+    margin-right: 3px;
+    z-index: 1;
+
+}
+
+.Card :hover{
+    transform: scale(1.1);
+}
+
+
+.Card img{
+    height: 120px;
+    width: 120px;
+    
+}
+
+
+
+.Tier{
+    border: 1px solid black;
+    
+    height: 120px;
+    width: 120px;
+    
+}
+
+
+
+    
+
+
+.PopUp{
+    height: 500px;
+    width: 500px;
+    z-index: 999;
+    background-color: white;
+    border-radius: 40px;
+    border: 1px solid black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+
+.PopUp img{
+    
+    margin: 20px;
+}
+
+
+
+.close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 20px;
+    cursor: pointer;
+}
