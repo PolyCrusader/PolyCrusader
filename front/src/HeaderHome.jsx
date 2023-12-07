@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./HeaderStyle.scss";
 
 const HeaderHome = () => {
@@ -6,16 +7,13 @@ const HeaderHome = () => {
     <div className="headerBox">
       <p className="Titre">La nuit de l'info 2023</p>
       <button className="button" type="button">
-        Accueil
+        <Link to="/">Accueil</Link>
       </button>
       <button className="button" type="button">
-        Accueil
+        <Link to="/tinder">Tinder</Link>
       </button>
       <button className="button" type="button">
-        Quizz
-      </button>
-      <button className="button" type="button">
-        Tierlist
+        <Link to="/tierlist">Tierlist</Link>
       </button>
     </div>
   );
