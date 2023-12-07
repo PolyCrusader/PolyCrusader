@@ -11,16 +11,17 @@ function TierList() {
   const [D, setD] = useState([]);
 
   class Card {
-    constructor(name, image) {
+    constructor(name, image,tier) {
       this.name = name;
       this.image = image;
+      this.tier =tier;
     }
   }
 
   useEffect(() => {
     const newStockage = [];
     for (let i = 0; i < 10; i++) {
-      let card = new Card("card " + i, "https://picsum.photos/200");
+      let card = new Card("card " + i, "https://picsum.photos/200","StockageCard");
       newStockage.push(card);
     }
     setStockage(newStockage);
@@ -28,29 +29,63 @@ function TierList() {
 
   function handleDrop(e, tier) {
     e.preventDefault();
+    
     const card = stockage[0];
 
+    const oldTier = card.tier;
+    
+    if (oldTier !== 'StockageCard') {
+        switch (oldTier) {
+          case 'S':
+            setS((S) => S.filter((c) => c !== card));
+            break;
+          case 'A':
+            setA((A) => A.filter((c) => c !== card));
+            break;
+          case 'B':
+            setB((B) => B.filter((c) => c !== card));
+            break;
+          case 'C':
+            setC((C) => C.filter((c) => c !== card));
+            break;
+          case 'D':
+            setD((D) => D.filter((c) => c !== card));
+            break;
+          default:
+            break;
+        }
+      }
+    
+    card.tier = tier;
     switch (tier) {
-      case 'S':
-        setS((S) => [...S, card]);
-        break;
-      case 'A':
-        setA((A) => [...A, card]);
-        break;
-      case 'B':
-        setB((B) => [...B, card]);
-        break;
-      case 'C':
-        setC((C) => [...C, card]);
-        break;
-      case 'D':
-        setD((D) => [...D, card]);
-        break;
-      default:
-        break;
+        case 'S':
+            setS(S => [...S, card]);
+            console.log(card.tier);
+            break;
+        case 'A':
+            setA(A => [...A, card]);
+            console.log(card.tier);
+            break;
+        case 'B':
+            setB(B => [...B, card]);
+            console.log(card.tier);
+            break;
+        case 'C':
+            setC(C => [...C, card]);
+            console.log(card.tier);
+            break;
+        case 'D':
+            setD(D => [...D, card]);
+            console.log(card.tier);
+            break;
+        case 'StockageCard':
+            setStockage(stockage => [...stockage,card]);
+            console.log(card.tier);
+        default:
+            break;
     }
 
-    setStockage(stockage.slice(1));
+
   }
 
   function handleDragOver(e) {
@@ -102,7 +137,7 @@ function TierList() {
           ))}
         </div>
 
-        <div className="StockageCard" onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, 'Stockage')}>
+        <div className="StockageCard" onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, 'StockageCard')}>
           {stockage.map((card) => (
             <div className="Card" key={card.name}>
               <img src={card.image} alt={card.name} />
