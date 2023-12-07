@@ -11,9 +11,9 @@ function App() {
   return (
     <>
       <div>
-        <HeaderHome></HeaderHome>
         <LandingPageHome></LandingPageHome>
       </div>
+
     </>
   );
 }

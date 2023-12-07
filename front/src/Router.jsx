@@ -6,6 +6,7 @@ import TierList from "./Tierlist";
 import Tinder from "./Tinder";
 
 
+
 export default function AppRouter() {
     return (
         <Router>
@@ -16,14 +17,9 @@ export default function AppRouter() {
           <Route path="/tierlist" element={<TierList />} />
           <Route path="/tinder" element={<Tinder />} />
           <Route
-            path="*"
-            element={
-              <div>
-                <h1>Gros on a pas trouvé ta page... Big 404</h1>
-              </div>
-            }
-          />
+            path="*" element={<Page404 />}
+            />
         </Routes>
       </Router>
     )
-    }
+}
