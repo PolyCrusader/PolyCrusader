@@ -5,7 +5,7 @@ import "./App.scss";
 function Page404() {
   const [grid, setGrid] = useState([]);
 
-  //we create a 10 x 7 grid
+  // Create a 10 x 7 grid
   const createGrid = () => {
     const grid = [];
     for (let i = 0; i < 20; i++) {
@@ -47,10 +47,9 @@ function Page404() {
     return pieces[randomPiece];
   };
 
-
   const placePiece = (piece, grid) => {
     const newGrid = grid.map((row) => [...row]);
-   //we are careful to place the piece in the middle of the grid
+    // Place the piece in the middle of the grid
     const middle = Math.floor(newGrid[0].length / 2);
     for (let i = 0; i < piece.length; i++) {
       for (let j = 0; j < piece[i].length; j++) {
@@ -58,16 +57,43 @@ function Page404() {
       }
     }
     return newGrid;
-  }
+  };
 
-//start of the game
+  let gravityInterval; // Declare gravityInterval outside useEffect
+
+  // Start of the game
   useEffect(() => {
-    const grid = createGrid();
-    const piece = generateRandomPiece();
-    const newGrid = placePiece(piece, grid);
+    const initialGrid = createGrid();
+    const initialPiece = generateRandomPiece();
+    const newGrid = placePiece(initialPiece, initialGrid);
     setGrid(newGrid);
+
+    // Set up the interval
+    gravityInterval = setInterval(() => {
+      setGrid((prevGrid) => {
+        const newGrid = prevGrid.map((row) => [...row]);
+
+        // Move the piece down
+        for (let i = newGrid.length - 1; i >= 0; i--) {
+          for (let j = 0; j < newGrid[i].length; j++) {
+            if (
+              newGrid[i][j] !== 9 &&
+              i + 1 < newGrid.length &&
+              newGrid[i + 1][j] === 9
+            ) {
+              newGrid[i + 1][j] = newGrid[i][j];
+              newGrid[i][j] = 9;
+            }
+          }
+        }
+
+        return newGrid;
+      });
+    }, 1000);
+
+    // Clean up the interval when the component unmounts
+    return () => clearInterval(gravityInterval);
   }, []);
-  
 
   return (
     <div className="tetris">
