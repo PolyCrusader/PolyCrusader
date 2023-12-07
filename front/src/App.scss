@@ -7,6 +7,10 @@
   text-align: center;
 }
 
+.gras{
+  font-weight: bold;
+}
+
 .left-div, .right-div{
   height: 100vh;
   width: 50%;
@@ -46,6 +50,16 @@
   color: $macchiato-text;
   box-shadow: 0 0 1rem 0.5rem $macchiato-base;
   transition: all 0.5s ease-in-out;
+}
+
+.left-div img{
+  height: 10rem;
+  width: 10rem;
+}
+
+.right-div img{
+  height: 15rem;
+  width: 15rem;
 }
 
 //CarteReponse

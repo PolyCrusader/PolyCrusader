@@ -1,9 +1,9 @@
 import viteLogo from '/vite.svg'
 import { useState, useEffect } from "react";
 
-const TinderCard = ({ save }) => {
-  let logo = viteLogo;
-  let content = "Lorem Ipsum";
+const TinderCard = ({ save }, logo, content) => {
+  logo = viteLogo;
+  content = "Lorem Ipsum";
 
   const [isLeft, setIsLeft] = useState(false);
   const [isRight, setIsRight] = useState(false);
@@ -46,8 +46,12 @@ const TinderCard = ({ save }) => {
 
   return (
     <>
-        <div className="left-div" onClick={handleLeftClick}></div>
-        <div className="right-div" onClick={handleRightClick}></div>
+        <div className="left-div" onClick={handleLeftClick}>
+          <img src="src/assets/close.svg" alt="close" />
+        </div>
+        <div className="right-div" onClick={handleRightClick}>
+          <img src="src/assets/check.svg" alt="check" />
+        </div>
         <div className="tinder-card">
             <img src={logo} alt="fact about climate" />
             <p>{content}</p>
