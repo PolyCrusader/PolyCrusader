@@ -1,6 +1,10 @@
+import viteLogo from '/vite.svg'
 import { useState, useEffect } from "react";
 
 const TinderCard = ({ save }) => {
+  let logo = viteLogo;
+  let content = "Lorem Ipsum";
+
   const [isLeft, setIsLeft] = useState(false);
   const [isRight, setIsRight] = useState(false);
 
@@ -44,7 +48,10 @@ const TinderCard = ({ save }) => {
     <>
         <div className="left-div" onClick={handleLeftClick}></div>
         <div className="right-div" onClick={handleRightClick}></div>
-        <div className="tinder-card"></div>
+        <div className="tinder-card">
+            <img src={logo} alt="fact about climate" />
+            <p>{content}</p>
+        </div>
     </>
   )
 }
