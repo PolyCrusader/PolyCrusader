@@ -9,19 +9,21 @@ function TierList() {
   const [B, setB] = useState([]);
   const [C, setC] = useState([]);
   const [D, setD] = useState([]);
+  const [draggedCard, setDraggedCard] = useState([]);
 
   class Card {
-    constructor(name, image,tier) {
+    constructor(name, image,tier,id) {
       this.name = name;
       this.image = image;
       this.tier =tier;
+      this.id = id;
     }
   }
 
   useEffect(() => {
     const newStockage = [];
     for (let i = 0; i < 10; i++) {
-      let card = new Card("card " + i, "https://picsum.photos/200","StockageCard");
+      let card = new Card("card " + i, "https://picsum.photos/200","StockageCard",i);
       newStockage.push(card);
     }
     setStockage(newStockage);
@@ -30,13 +32,17 @@ function TierList() {
   function handleDrop(e, tier) {
     e.preventDefault();
     
-    const card = stockage[0];
-
+    
+    const card = draggedCard || stockage[0];
+    
     const oldTier = card.tier;
+    console.log(oldTier);
     
     if (oldTier !== 'StockageCard') {
         switch (oldTier) {
           case 'S':
+            console.log(card.name);
+            
             setS((S) => S.filter((c) => c.name !== card.name));
             break;
           case 'A':
@@ -88,53 +94,59 @@ function TierList() {
             break;
     }
 
-
+    console.log(S);
   }
 
   function handleDragOver(e) {
     e.preventDefault();
   }
 
+  function handleDragStart(card) {
+    setDraggedCard(card);
+  }
+
+  
+
   return (
     <div>
       <h1>TierList</h1>
       <div className="TierList">
         <div className="S" onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, 'S')}>
-          <h2>S</h2>
+        <div className='Tier'><h2>S</h2></div>
           {S.map((card) => (
-            <div className="Card" key={card.name}>
+            <div className="Card" key={card.name} onDrag={() => handleDragStart(card)}>
               <img src={card.image} alt={card.name} />
             </div>
           ))}
         </div>
         <div className="A" onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, 'A')}>
-          <h2>A</h2>
+          <div className='Tier'><h2>A</h2></div>
           {A.map((card) => (
-            <div className="Card" key={card.name}>
+            <div className="Card" key={card.name} onDrag={() => handleDragStart(card)}>
               <img src={card.image} alt={card.name} />
             </div>
           ))}
         </div>
         <div className="B" onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, 'B')}>
-          <h2>B</h2>
+        <div className='Tier'><h2>B</h2></div>
           {B.map((card) => (
-            <div className="Card" key={card.name}>
+            <div className="Card" key={card.name} onDrag={() => handleDragStart(card)}>
               <img src={card.image} alt={card.name} />
             </div>
           ))}
         </div>
         <div className="C" onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, 'C')}>
-          <h2>C</h2>
+        <div className='Tier'><h2>C</h2></div>
           {C.map((card) => (
-            <div className="Card" key={card.name}>
+            <div className="Card" key={card.name} onDrag={() => handleDragStart(card)}>
               <img src={card.image} alt={card.name} />
             </div>
           ))}
         </div>
         <div className="D" onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, 'D')}>
-          <h2>D</h2>
+        <div className='Tier'><h2>D</h2></div>
           {D.map((card) => (
-            <div className="Card" key={card.name}>
+            <div className="Card" key={card.name} onDrag={() => handleDragStart(card)}>
               <img src={card.image} alt={card.name} />
             </div>
           ))}
@@ -142,7 +154,7 @@ function TierList() {
 
         <div className="StockageCard" onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, 'StockageCard')}>
           {stockage.map((card) => (
-            <div className="Card" key={card.name}>
+            <div className="Card" key={card.name} onDrag={() => handleDragStart(card)}>
               <img src={card.image} alt={card.name} />
             </div>
           ))}
