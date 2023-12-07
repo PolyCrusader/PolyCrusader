@@ -1,0 +1,15 @@
+@import "./assets/catpuccin.scss";
+
+.textBox {
+  font-size: 5rem;
+  position: absolute;
+  top: 20rem;
+  left: 5rem;
+  right: 5rem;
+  background: $mocha-base;
+  color: $mocha-text;
+  padding-inline: 5rem;
+  text-shadow: 5px 5px 30px black;
+  border-radius: 5rem;
+  padding-inline: 5rem;
+}
