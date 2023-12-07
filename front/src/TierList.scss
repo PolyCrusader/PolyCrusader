@@ -1,0 +1,55 @@
+.TierList{
+    border: 1px solid black;
+}
+
+.S{
+    border: 1px solid black;
+    min-height: 120px;
+
+}
+.A{
+    border: 1px solid black;
+}
+.B{
+    border: 1px solid black;
+}
+.C{
+    border: 1px solid black;
+}
+.D{
+    border: 1px solid black;
+}
+
+
+
+.StockageCard{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; 
+    border: 1px solid black;
+}
+   
+
+   
+.Card{
+    margin-right: 3px;
+    z-index: 1;
+
+}
+
+
+
+.Card img{
+    height: 120px;
+    width: 120px;
+}
+
+
+
+
+
+
+
+    
+
+
