@@ -7,6 +7,6 @@ import TierList from './TierList.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <TierList />
+    <AppRouter />
   </React.StrictMode>,
 )
