@@ -1,0 +1,42 @@
+@import "./assets/catpuccin.scss";
+.headerBox {
+  display: flex;
+  position: absolute;
+  top: 2rem;
+  left: 5rem;
+  right: 5rem;
+  background: $mocha-base;
+  padding-inline: 5rem;
+  border-radius: 15rem;
+  color: $mocha-text;
+}
+
+.Titre {
+  font-size: 4rem;
+  font-weight: bold;
+  text-shadow: 0.3rem 0.3rem 1.9rem black;
+}
+
+.Onglets {
+  font-size: 4rem;
+  margin-left: 50rem;
+}
+
+.button {
+  border-radius: 2rem;
+  border: none;
+  background-color: $mocha-base;
+
+  text-align: center;
+  display: inline-block;
+  font-size: 3rem;
+
+  transition-duration: 0.4s;
+}
+
+.button:hover {
+  background-color: $mocha-mantle;
+  color: white;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
