@@ -1,23 +1,44 @@
 .TierList{
     border: 1px solid black;
+    width: 80vw;
 }
 
 .S{
     border: 1px solid black;
     min-height: 120px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; 
 
 }
 .A{
     border: 1px solid black;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; 
 }
 .B{
     border: 1px solid black;
+    min-height: 120px;
+    
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; 
 }
 .C{
     border: 1px solid black;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; 
 }
 .D{
     border: 1px solid black;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; 
 }
 
 
