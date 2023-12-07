@@ -1,114 +1,128 @@
-import React, { useEffect, useState } from "react";
 import "./page404.scss";
 import "./App.scss";
+import {useEffect} from "react";
 
 function Page404() {
-  const [grid, setGrid] = useState([]);
 
-  // Create a 10 x 7 grid
-  const createGrid = () => {
-    const grid = [];
-    for (let i = 0; i < 20; i++) {
-      grid.push(new Array(10).fill(9));
-    }
-    return grid;
-  };
+    const PIECES = {
+        0: [
+            [1, 1],
+            [1, 1],
+        ],
+        1: [[1, 1, 1, 1]],
+        2: [
+            [1, 1, 0],
+            [0, 1, 1],
+        ],
+        3: [
+            [0, 1, 1],
+            [1, 1, 0],
+        ],
+        4: [
+            [1, 0, 0],
+            [1, 1, 1],
+        ],
+        5: [
+            [0, 0, 1],
+            [1, 1, 1],
+        ],
+        6: [
+            [0, 1, 0],
+            [1, 1, 1],
+        ],
+    };
 
-  const pieces = {
-    0: [
-      [1, 1],
-      [1, 1],
-    ],
-    1: [[1, 1, 1, 1]],
-    2: [
-      [1, 1, 0],
-      [0, 1, 1],
-    ],
-    3: [
-      [0, 1, 1],
-      [1, 1, 0],
-    ],
-    4: [
-      [1, 0, 0],
-      [1, 1, 1],
-    ],
-    5: [
-      [0, 0, 1],
-      [1, 1, 1],
-    ],
-    6: [
-      [0, 1, 0],
-      [1, 1, 1],
-    ],
-  };
-
-  const generateRandomPiece = () => {
-    const randomPiece = Math.floor(Math.random() * 7);
-    return pieces[randomPiece];
-  };
-
-  const placePiece = (piece, grid) => {
-    const newGrid = grid.map((row) => [...row]);
-    // Place the piece in the middle of the grid
-    const middle = Math.floor(newGrid[0].length / 2);
-    for (let i = 0; i < piece.length; i++) {
-      for (let j = 0; j < piece[i].length; j++) {
-        newGrid[i][middle + j] = piece[i][j];
-      }
-    }
-    return newGrid;
-  };
-
-  let gravityInterval; // Declare gravityInterval outside useEffect
-
-  // Start of the game
-  useEffect(() => {
-    const initialGrid = createGrid();
-    const initialPiece = generateRandomPiece();
-    const newGrid = placePiece(initialPiece, initialGrid);
-    setGrid(newGrid);
-
-    // Set up the interval
-    gravityInterval = setInterval(() => {
-      setGrid((prevGrid) => {
-        const newGrid = prevGrid.map((row) => [...row]);
-
-        // Move the piece down
-        for (let i = newGrid.length - 1; i >= 0; i--) {
-          for (let j = 0; j < newGrid[i].length; j++) {
-            if (
-              newGrid[i][j] !== 9 &&
-              i + 1 < newGrid.length &&
-              newGrid[i + 1][j] === 9
-            ) {
-              newGrid[i + 1][j] = newGrid[i][j];
-              newGrid[i][j] = 9;
+    useEffect(() => {
+        const rotatePiece = (piece) => {
+            const newPiece = [];
+            for (let i = 0; i < piece[0].length; i++) {
+                newPiece.push([]);
             }
-          }
+            piece.forEach((row) => {
+                row.forEach((value, i) => {
+                    newPiece[i].unshift(value);
+                });
+            });
+            return newPiece;
         }
 
-        return newGrid;
-      });
-    }, 1000);
 
-    // Clean up the interval when the component unmounts
-    return () => clearInterval(gravityInterval);
-  }, []);
 
-  return (
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "ArrowLeft") {
+                currentPieceCoords[0] -= 1;
+            } else if (event.key === "ArrowRight") {
+                currentPieceCoords[0] += 1;
+            } else if (event.key === "ArrowDown") {
+                currentPieceCoords[1] += 1;
+            } else if (event.key === "ArrowUp") {
+                currentPiece = rotatePiece(currentPiece);
+            }
+        });
+
+
+        const canvas = document.getElementById("tetris");
+        const context = canvas.getContext("2d");
+
+        const PIECE_SIZE = context.canvas.width / 10;
+
+        const onscreen_pieces = [];
+
+        context.fillStyle = "black";
+        context.fillRect(0, 0, canvas.width, canvas.height);
+
+        let currentPiece = [];
+        let currentPieceCoords = [0, 0];
+
+        //placed_pieces.push(currentPiece);
+
+        const generatePiece = () => {
+            currentPiece = PIECES[Math.floor(Math.random() * 7)];
+            currentPieceCoords = [Math.floor(Math.random() * (10 - currentPiece[0].length)), 0];
+        };
+
+        generatePiece();
+
+        const drawPiece = (piece, coords) => {
+            piece.forEach((row, y) => {
+                row.forEach((value, x) => {
+                    if (value > 0) {
+                        context.fillRect((x + coords[0]) * PIECE_SIZE, (y + coords[1]) * PIECE_SIZE, PIECE_SIZE, PIECE_SIZE);
+                    }
+                });
+            });
+        };
+
+        let tick = () => {
+            context.fillStyle = "black";
+            context.fillRect(0, 0, canvas.width, canvas.height);
+            context.fillStyle = "white";
+
+            onscreen_pieces.forEach((piece) => {
+                drawPiece(piece[0], piece[1]);
+            });
+
+            drawPiece(currentPiece, currentPieceCoords);
+            currentPieceCoords[1] += PIECE_SIZE / 700;
+
+            requestAnimationFrame(tick);
+        };
+
+        requestAnimationFrame(tick);
+
+
+
+
+    }, []);
+
+
+return (
     <div className="tetris">
-      <div id="grid">
-        {grid.map((row, i) =>
-          row.map((cell, j) => (
-            <div
-              className={cell === 9 ? "cell" : "block"}
-              key={`${i}${j}`}
-            ></div>
-          ))
-        )}
-      </div>
+        <div id="grid">
+            <canvas id="tetris" width="400" height="800"></canvas>
+        </div>
     </div>
-  );
+);
 }
 
 export default Page404;
