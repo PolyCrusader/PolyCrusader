@@ -2,6 +2,7 @@ const express = require('express');
 const app=express();
 const mongoose = require('mongoose');
 const tinderRoutes = require('./src/routes/TinderRouter');
+const tierlistRoutes =require('./src/routes/TierListRouter');
 // Importer le module dotenv
 require('dotenv').config();
 
@@ -23,6 +24,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/api/tinder', tinderRoutes);
+app.use('/api/tier-list',tierlistRoutes);
 
 
 module.exports=app;
