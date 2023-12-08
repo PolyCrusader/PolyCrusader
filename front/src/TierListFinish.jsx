@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import PopUp from './PopUp';
 import { useState } from 'react';
+import data from './InfoTierList.json';
 
 import tierD from './assets/TierList/tierD.png';
 import tierC from './assets/TierList/tierC.png';
@@ -17,29 +18,73 @@ function TierListFinish() {
     const [D, setD] = useState([]);
 
     class Card {
-        constructor(name, image,tier,id) {
+        constructor(name, image,tier,id,description) {
           this.name = name;
           this.image = image;
           this.tier =tier;
           this.id = id;
-          this.description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.";
+          this.description = description;
         }
       }
     
 
-   
-    useEffect(() => {
-        const newStockage = [];
-        for (let i = 0; i < 10; i++) {
-          let card = new Card("card " + i, "https://picsum.photos/200","Action1",i);
-          newStockage.push(card);
-        }
-        setA(newStockage);
-      }, []);
 
-      function onClose(){
-        setSelectedCard(null);
-      }
+  useEffect(() => {
+    let card;
+    let nb=0;
+    setA([]);
+    setS([]);
+    setB([]);
+    setC([]);
+    setD([]);
+  
+    for(let y=0 ; y<4 ;y++){
+
+          for (let i = 0; i < data[y].Actions.length; i++) {
+            let description = data[y].Actions[i].Description;
+            console;log(description);
+            switch (data[y].Actions[i].Tier) {
+              case "S":
+                 card = new Card("card " + nb, "https://picsum.photos/200","S",i,description);
+                 setS(prevS => [...prevS, card]); 
+                break;
+              case "A":
+                   card = new Card("card " + nb, "https://picsum.photos/200","A",i,description);
+                   setA(prevA => [...prevA, card]); 
+                  break;
+                
+
+              case "B":
+                    card = new Card("card " + nb, "https://picsum.photos/200","B",i,description);
+                    setB(prevB => [...prevB, card]); 
+                   break;
+              case "C":
+                    card = new Card("card " + nb, "https://picsum.photos/200","C",i,description);
+                    setC(prevC => [...prevC, card]); 
+                   break;
+                
+              case "D":
+                   card = new Card("card " + nb, "https://picsum.photos/200","D",i,description);
+                   setD(prevD => [...prevD, card]); 
+                  break;
+                
+              
+            
+              default:
+                break;
+                
+                
+            }
+            nb+=1;
+          }
+         
+        }
+  }, []);
+
+
+          
+
+
 
   const [selectedCard, setSelectedCard] = useState(null);
   return (

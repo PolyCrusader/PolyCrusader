@@ -15,7 +15,6 @@ function PopUp({card,onClose,id}){
         <div className={name}>
             <button className='close' onClick={onClose}>X</button>
             <img src={card.image} alt={card.name} />
-            <h1>{card.name}</h1>
             <p>{card.description}</p>
         </div>
         

@@ -16,6 +16,8 @@ function TierList() {
   const [Action3, setAction3] = useState([]);
   const [Action4, setAction4] = useState([]);
 
+  
+
   const [S, setS] = useState([]);
   const [A, setA] = useState([]);
   const [B, setB] = useState([]);
@@ -25,31 +27,77 @@ function TierList() {
   const [selectedCard, setSelectedCard] = useState(null);
   const [submit, setSubmit] = useState(false);
 
+
+
   class Card {
-    constructor(name, image,tier,id) {
+    constructor(name, image,tier,id,description) {
       this.name = name;
       this.image = image;
       this.tier =tier;
       this.id = id;
-      this.description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.";
+      this.description = description;
     }
   }
 
-  useEffect(() => {
-    fetch('http://localhost:8000/api/tierlist')
-    .then(response => response.json())
-    .catch(error => console.log(error))
-  }, []);
+  console.log(data);
+
+
+   
   
+
   
 
   useEffect(() => {
-    const newStockage = [];
-    for (let i = 0; i < 10; i++) {
-      let card = new Card("card " + i, "https://picsum.photos/200","Action1",i);
-      newStockage.push(card);
+    let nb=0;
+    for(let y=0 ; y<4 ;y++){
+        const newStockage = [];
+        switch (y) {
+            case 0:
+
+            for (let i = 0; i < data[y].Actions.length; i++) {
+                let card = new Card("card " + i, "https://picsum.photos/200","Action1",i,data[y].Actions[i].Description);
+                newStockage.push(card);
+              }
+              setAction1(newStockage);
+                
+                break;
+
+            case 1:
+
+                for (let i = 0; i < data[y].Actions.length; i++) {
+                    let card = new Card("card " + i, "https://picsum.photos/200","Action2",i,data[y].Actions[i].Description);
+                    console.log(i,data[y].Actions.Description);
+                    newStockage.push(card);
+                  }
+                  setAction2(newStockage);
+                    
+                    break;
+            case 2:
+
+            for (let i = 0; i < data[y].Actions.length; i++) {
+                let card = new Card("card " + i, "https://picsum.photos/200","Action3",i,data[y].Actions[i].Description);
+                newStockage.push(card);
+              }
+              setAction3(newStockage);
+                
+                break;
+            case 3:
+
+                for (let i = 0; i < data[y].Actions.length; i++) {
+                    let card = new Card("card " + i, "https://picsum.photos/200","Action4",i,data[y].Actions[i].Description);
+                    newStockage.push(card);
+                  }
+                  setAction4(newStockage);
+                    
+                    break;
+        
+            default:
+                break;
+        }
+        
     }
-    setAction1(newStockage);
+    
+    
   }, []);
 
   function handleDrop(e, tier) {
@@ -226,8 +274,8 @@ function TierList() {
 
         <div className="Action1" onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, 'Action1')} >
         <div className='TierAction'>
-            <h2>Actions individuelles : installation</h2>
-            <p>Cette catégorie comporte des actions uniques qui peuvent être misent en place par n'importe qui à un coût plus ou moins haut et qui permettent de réduire l'émission de gaz à effet de serre, notamment en réduisant la consomation d'énergie.</p>
+            <h2>{data[0].Name}</h2>
+            <p>{data[0].Description}</p>
         </div>
           {Action1.map((card) => (
             <div className="Card" key={card.name} onDrag={() => handleDragStart(card)} onClick={() => setSelectedCard(card)} >
@@ -237,8 +285,8 @@ function TierList() {
         </div>
         <div className="Action2" onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, 'Action2')} >
         <div className='TierAction'>
-            <h2>Actions individuelles : habitude</h2>
-            <p>Cette catégorie comporte des actions, plus ou moins rapide, à effectuer régulièrement. Ce sont des changements d'habitudes significatifs</p>
+            <h2>{data[1].Name}</h2>
+            <p>{data[0].Description}</p>
         </div>
           {Action2.map((card) => (
             <div className="Card" key={card.name} onDrag={() => handleDragStart(card)} onClick={() => setSelectedCard(card)} >
@@ -248,8 +296,8 @@ function TierList() {
         </div>
         <div className="Action3" onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, 'Action3')} >
         <div className='TierAction'>
-            <h2>Actions gouvernementales</h2>
-            <p>Cette catégorie contient les solutions à grandes échelles misent en place par le gouvernement.</p>
+            <h2>{data[2].Name}</h2>
+            <p>{data[0].Description}</p>
         </div>
           {Action3.map((card) => (
             <div className="Card" key={card.name} onDrag={() => handleDragStart(card)} onClick={() => setSelectedCard(card)} >
@@ -259,8 +307,8 @@ function TierList() {
         </div>
         <div className="Action4" onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, 'Action4')} >
         <div className='TierAction'>
-            <h2>Petits gestes du quotidien</h2>
-            <p>Ce sont les petites actions qui ne coutent rien à faire et qui ne prennent pas de temps.</p>
+            <h2>{data[3].Name}</h2>
+            <p>{data[0].Description}</p>
         </div>
           {Action4.map((card) => (
             <div className="Card" key={card.name} onDrag={() => handleDragStart(card)} onClick={() => setSelectedCard(card)} >
