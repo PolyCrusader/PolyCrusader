@@ -66,3 +66,20 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.webgl{
+  position: fixed;
+  top:0;
+  left: 0;
+}
+
+.footerBox{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+}
+
+.headerBox{
+  z-index: 999 !important;
+}
