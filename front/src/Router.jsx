@@ -9,6 +9,7 @@ import IcebergGame from "./iceberg";
 export default function AppRouter() {
   return (
     <Router>
+      <HeaderHome />
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/tierlist" element={<TierList />} />
