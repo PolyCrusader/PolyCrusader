@@ -1,6 +1,5 @@
 const TierList = require('../models/TierList');
 const mongoose = require('mongoose');
-<<<<<<< HEAD
 const { body, validationResult } = require('express-validator');
 
 exports.createTierList = [
@@ -39,7 +38,6 @@ exports.createTierList = [
             });
     }
 ];
-=======
 
 exports.createTierList = (req, res, next) => {
     const tierList = new TierList({
@@ -61,7 +59,6 @@ exports.createTierList = (req, res, next) => {
         }
     );
 };
->>>>>>> c4facdc2019550e5a737e01100612084ee4eb93a
 
 exports.getAllTierList = (req, res, next) => {
     TierList.find().then(
