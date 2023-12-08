@@ -2,8 +2,9 @@
 
 .footerBox {
   position: relative;
-  margin:0;padding: 0;
+  margin:0;
+  padding: 0;
   width: 100vw;
-  background: $mocha-base;
-  color: $mocha-text;
+  background: rgb(1, 3, 14);
+  color: #cdd6fa;
 }

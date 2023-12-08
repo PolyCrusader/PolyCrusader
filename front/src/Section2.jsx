@@ -74,7 +74,7 @@ const Section2 = () => {
             en repeignant des surfaces terrestres en blanc…
           </p>
         )}
-        <button onClick={() => onClick()}>{ButtonParagraph}</button>
+        <button className="button" onClick={() => onClick()}>{ButtonParagraph}</button>
       </div>
     </>
   );

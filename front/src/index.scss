@@ -57,7 +57,7 @@ button:focus-visible {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: transparent;
+    background-color: #ffffff;
   }
   a:hover {
     color: #747bff;
@@ -82,10 +82,4 @@ button:focus-visible {
 
 .headerBox{
   z-index: 999 !important;
-}
-
-.bouton{
-  position: relative;
-  z-index: 9999 !important;
-  margin-bottom: 5rem;
 }
