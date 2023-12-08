@@ -1,11 +1,18 @@
 import React from 'react'
 import './TierList.scss';
 
-function PopUp({card,onClose}){
+function PopUp({card,onClose,id}){
+    let name;
+    if(id === 1){
+        name = 'PopUp1'
+    }
+    else{
+        name='PopUp2';
+    }
     return (
         
             
-        <div className='PopUp'>
+        <div className={name}>
             <button className='close' onClick={onClose}>X</button>
             <img src={card.image} alt={card.name} />
             <h1>{card.name}</h1>

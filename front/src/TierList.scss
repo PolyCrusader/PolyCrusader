@@ -1,6 +1,7 @@
 .TierList{
     border: 1px solid black;
     width: 80vw;
+    
 }
 
 .S{
@@ -44,11 +45,21 @@
 
 
 
-.StockageCard{
+.Action1,.Action2,.Action3{
     display: flex;
     align-items: center;
     flex-wrap: wrap; 
     border: 1px solid black;
+}
+
+.TierAction{
+    border: 1px solid black;
+    height: 120px;
+    width: 100%;
+    margin-right: 3px;
+    margin-bottom: 3px;
+    z-index: 1;
+    position: relative;
 }
    
 
@@ -85,7 +96,7 @@
     
 
 
-.PopUp{
+.PopUp1{
     height: 500px;
     width: 500px;
     z-index: 999;
@@ -99,11 +110,29 @@
     
 }
 
-.PopUp img{
+.PopUp1 img{
     
     margin: 20px;
 }
 
+.PopUp2 img{
+    
+    margin: 20px;
+}
+
+.PopUp2{
+    height: 500px;
+    width: 500px;
+    z-index: 999;
+    background-color: white;
+    border-radius: 40px;
+    border: 1px solid black;
+    position: absolute;
+    top: 190%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+    
+}
 
 
 .close{

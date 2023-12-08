@@ -2,9 +2,14 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import './TierList.scss';
 import PopUp from './PopUp';
+import TierListFinish from './TierListFinish';
 
 function TierList() {
-  const [stockage, setStockage] = useState([]);
+  const [Action1, setAction1] = useState([]);
+  const [Action2, setAction2] = useState([]);
+  const [Action3, setAction3] = useState([]);
+  const [Action4, setAction4] = useState([]);
+
   const [S, setS] = useState([]);
   const [A, setA] = useState([]);
   const [B, setB] = useState([]);
@@ -12,6 +17,7 @@ function TierList() {
   const [D, setD] = useState([]);
   const [draggedCard, setDraggedCard] = useState([]);
   const [selectedCard, setSelectedCard] = useState(null);
+  const [submit, setSubmit] = useState(false);
 
   class Card {
     constructor(name, image,tier,id) {
@@ -26,25 +32,25 @@ function TierList() {
   useEffect(() => {
     const newStockage = [];
     for (let i = 0; i < 10; i++) {
-      let card = new Card("card " + i, "https://picsum.photos/200","StockageCard",i);
+      let card = new Card("card " + i, "https://picsum.photos/200","Action1",i);
       newStockage.push(card);
     }
-    setStockage(newStockage);
+    setAction1(newStockage);
   }, []);
 
   function handleDrop(e, tier) {
     e.preventDefault();
     
     
-    const card = draggedCard || stockage[0];
+    const card = draggedCard;
     
     const oldTier = card.tier;
-    console.log(oldTier);
+  
     
-    if (oldTier !== 'StockageCard') {
+   
         switch (oldTier) {
           case 'S':
-            console.log(card.name);
+            
             
             setS((S) => S.filter((c) => c.name !== card.name));
             break;
@@ -60,13 +66,26 @@ function TierList() {
           case 'D':
             setD((D) => D.filter((c) => c.name !== card.name));
             break;
+           case 'Action1':
+            setAction1((Action1) => Action1.filter((c) => c.name !== card.name));
+            break;
+           case 'Action2':
+            setAction2((Action2) => Action2.filter((c) => c.name !== card.name));
+            break;
+           case 'Action3':
+            setAction3((Action3) => Action3.filter((c) => c.name !== card.name));
+            break;
+            case 'Action4':
+            setAction4((Action4) => Action4.filter((c) => c.name !== card.name));
+            break;
+
           default:
             break;
         }
-      }
-      else{
-        setStockage((stockage) => stockage.filter((c) => c.name !== card.name));
-      }
+      
+    
+      
+      
     
     card.tier = tier;
     switch (tier) {
@@ -90,14 +109,28 @@ function TierList() {
             setD(D => [...D, card]);
             console.log(card.tier);
             break;
-        case 'StockageCard':
-            setStockage(stockage => [...stockage,card]);
+        case 'Action1':
+            setAction1(Action1 => [...Action1,card]);
             console.log(card.tier);
+            break;
+        case 'Action2':
+            setAction2(Action2 => [...Action2,card]);
+            
+            console.log(card.tier);
+            break;
+        case 'Action3':
+            setAction3(Action3 => [...Action3,card]);
+            console.log(card.tier);
+            break;
+        case 'Action4':
+            setAction4(Action4 => [...Action4,card]);
+            console.log(card.tier);
+            break;
         default:
             break;
     }
 
-    console.log(S);
+    setDraggedCard(null);
   }
 
   function handleDragOver(e) {
@@ -113,11 +146,15 @@ function TierList() {
     setSelectedCard(null);
   }
   
+  function handleSubmit(){
+    if(Action1.length===0 && Action2.length===0 &&  Action3.length===0)
+    {setSubmit(true);}
+  }
 
   return (
     <div>
       <h1>TierList</h1>
-      {selectedCard && <PopUp card={selectedCard} onClose={onClose}/>}
+      {selectedCard && <PopUp card={selectedCard} onClose={onClose} id={1}/>}
       <div className="TierList">
         <div className="S" onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, 'S')}>
         <div className='Tier'><h2>S</h2></div>
@@ -160,14 +197,55 @@ function TierList() {
           ))}
         </div>
 
-        <div className="StockageCard" onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, 'StockageCard')} >
-          {stockage.map((card) => (
+        <div className="Action1" onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, 'Action1')} >
+        <div className='TierAction'>
+            <h2>Actions individuelles : installation</h2>
+            <p>Cette catégorie comporte des actions uniques qui peuvent être misent en place par n'importe qui à un coût plus ou moins haut et qui permettent de réduire l'émission de gaz à effet de serre, notamment en réduisant la consomation d'énergie.</p>
+        </div>
+          {Action1.map((card) => (
             <div className="Card" key={card.name} onDrag={() => handleDragStart(card)} onClick={() => setSelectedCard(card)} >
               <img src={card.image} alt={card.name}  />
             </div>
           ))}
         </div>
+        <div className="Action2" onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, 'Action2')} >
+        <div className='TierAction'>
+            <h2>Actions individuelles : habitude</h2>
+            <p>Cette catégorie comporte des actions, plus ou moins rapide, à effectuer régulièrement. Ce sont des changements d'habitudes significatifs</p>
+        </div>
+          {Action2.map((card) => (
+            <div className="Card" key={card.name} onDrag={() => handleDragStart(card)} onClick={() => setSelectedCard(card)} >
+              <img src={card.image} alt={card.name}  />
+            </div>
+          ))}
+        </div>
+        <div className="Action3" onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, 'Action3')} >
+        <div className='TierAction'>
+            <h2>Actions gouvernementales</h2>
+            <p>Cette catégorie contient les solutions à grandes échelles misent en place par le gouvernement.</p>
+        </div>
+          {Action3.map((card) => (
+            <div className="Card" key={card.name} onDrag={() => handleDragStart(card)} onClick={() => setSelectedCard(card)} >
+              <img src={card.image} alt={card.name}  />
+            </div>
+          ))}
+        </div>
+        <div className="Action4" onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, 'Action4')} >
+        <div className='TierAction'>
+            <h2>Petits gestes du quotidien</h2>
+            <p>Ce sont les petites actions qui ne coutent rien à faire et qui ne prennent pas de temps.</p>
+        </div>
+          {Action4.map((card) => (
+            <div className="Card" key={card.name} onDrag={() => handleDragStart(card)} onClick={() => setSelectedCard(card)} >
+              <img src={card.image} alt={card.name}  />
+            </div>
+          ))}
+        </div>
+        
       </div>
+      <button className='Submit' onClick={() => handleSubmit()}>Submit</button>
+      { submit && <TierListFinish/>}
+      
     </div>
   );
 }
