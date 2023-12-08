@@ -7,13 +7,19 @@ const Tinder = () => {
     const [SubmittedAnswers, setSubmittedAnswers] = useState(null)
     const [apiData, setApiData] = useState(null);
 
+    const [CardContent, setCardContent] = useState(null);
+    const [isCardTrue, setIsCardTrue] = useState(null);
+
     useEffect(() => {
         fetch("http://89.168.46.26:8000/api/tinder")
             .then(response => response.json())
             .then(data => setApiData(data))
             .catch(error => console.error('Erreur:', error));
-            console.log(apiData);
     }, []);
+
+    useEffect(() => {
+        console.log(apiData);
+    }, [apiData]);
 
     const handleSubmit = (value) => {
         console.log("I HAVE RECEIVED THE VALUE", value);
@@ -26,6 +32,21 @@ const Tinder = () => {
         console.log("next match");
     }
 
+    const getCardContent = () => {
+        const randomIndex = Math.floor(Math.random() * apiData.length);
+        const randomCard = apiData[randomIndex];
+        console.log(randomCard.Description);
+            setCardContent(randomCard.Description);
+    }
+
+    useEffect(() => {
+        if(apiData) {
+            getCardContent();
+            console.log('Content set to: ', CardContent);
+        }
+    }
+    , [apiData]);
+
     return (
         <>
             <h1> Truth Quest for the Earth  </h1>
@@ -35,7 +56,7 @@ const Tinder = () => {
             <p className="gras">3. Points et Niveaux : </p> <p>Gagnez des points en trouvant les fausses informations. Plus vous en découvrez, plus vous montez de niveau. <br/> </p>
             <div className="tinder-page">
                 {
-                    !isResultPage && <TinderCard save={handleSubmit} logo="" content="" />
+                    !isResultPage && <TinderCard save={handleSubmit} logo="" content={CardContent} />
                 }
                 {
                     isResultPage && <CarteReponse side={SubmittedAnswers} onNextMatch={handleNextMatch} content="" logo="" isInfoTrue=""/>

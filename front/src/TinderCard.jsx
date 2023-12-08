@@ -1,9 +1,9 @@
 import viteLogo from '/vite.svg'
 import { useState, useEffect } from "react";
 
-const TinderCard = ({ save }, logo, content) => {
+const TinderCard = ({ save, content, logo }) => {
   logo = viteLogo;
-  content = "Lorem Ipsum";
+  console.log('here we have this content: ', content);
 
   const [isLeft, setIsLeft] = useState(false);
   const [isRight, setIsRight] = useState(false);
