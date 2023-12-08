@@ -4,19 +4,24 @@
         "Description":"Cette catégorie comporte des actions uniques qui peuvent être misent en place par n'importe qui à un coût plus ou moins haut et qui permettent de réduire l'émission de gaz à effet de serre, notamment en réduisant la consomation d'énergie.",
         "Actions":[
             {
+                "Tier":"D",
                 "Description":"Utiliser des couleurs claires dans l’habitation pour réduire le besoin d’intensité des lampes."
     
             },
             {
+                "Tier": "D",
                 "Description":"Garder le réfrigérateur à température ambiante pour réduire sa consommation d’électricité."
             },
             {
+                "Tier": "A",
                 "Description":"Isoler les ouvertures, le chauffage et les outillages."
             },
             {
+                "Tier":"A",
                 "Description": "Utiliser un véhicule éléctrique."
             },
             {
+                "Tier":"B",
                 "Description": "Changer de chaudière."
             }
         ]
@@ -30,12 +35,15 @@
         "Actions":[
 
             {
+                "Tier":"A",
                 "Description":"Adopter un régime végétarien."
             },
             {
+                "Tier":"B",
                 "Description": "Nettoyer ses radiateurs hydrauliques régulièrement."
             },
             {
+                "Tier":"A",
                 "Description": "Préférer utiliser des transports en communs ou des vélos à la voiture."
             }
 
@@ -49,21 +57,27 @@
         "Actions":[
 
             {
+                "Tier":"A",
                 "Description":"Inciter à l'utilisation de transport peu ou pas poluant"
             },
             {
+                "Tier":"S",
                 "Description": "protéger la biodiversité (limiter l'émission de lumière, protéger des zones naturelles)"
             },
             {
+                "Tier":"A",
                 "Description": "inciter à une meilleur isolation thermique des batiments "
             },
             {
+                "Tier":"S",
                 "Description": "Développer les énergies renouvelables"
             },
             {
+                "Tier":"A",
                 "Description" : "simplifier le reciclage des déchets"
             },
             {
+                "Tier":"S",
                 "Description" : "Aides diverses pour l'investissement dans les énergies renouvelable"
             }
 
@@ -72,19 +86,24 @@
                         
     },
     {
-        "Name":"Petits gestes du quotidien","Description":"Ce sont les petites actions qui ne coutent rien à faire et qui ne prennent pas de temps.",
+        "Name":"Petits gestes du quotidien",
+        "Description":"Ce sont les petites actions qui ne coutent rien à faire et qui ne prennent pas de temps.",
         "Actions":[
 
             {
+                "Tier":"C",
                 "Description": "Eteindre ses appareils lorsque l'on se deplace."
             },
             {
+                "Tier":"D",
                 "Description": "Sécher son linge à l'air libre."
             },
             {
+                "Tier":"C",
                 "Description": "Éteindre les lumières en sortant d’une pièce."
             },
             {
+                "Tier":"D",
                 "Description": "Éteindre son four ou ses plaques avant la fin de la cuisson pour économiser l’électricité."
             }
 
