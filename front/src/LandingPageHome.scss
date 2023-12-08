@@ -1,0 +1,11 @@
+@import "./assets/catpuccin.scss";
+
+.textBox {
+  font-size: 1.5rem;
+  position: relative;
+  text-align: center;
+  color: $mocha-text;
+  padding-inline: 5rem;
+  text-shadow: 5px 5px 30px black;
+  max-width: 50vw;
+}
