@@ -11,6 +11,7 @@ const Tinder = () => {
     const [isCardTrue, setIsCardTrue] = useState(null);
     const [CardLogo, setCardLogo] = useState(null);
     const [CardAnswer, setCardAnswer] = useState(null);
+    const [CardSourceUrl, setCardSourceUrl] = useState(null);
 
     useEffect(() => {
         fetch("http://89.168.46.26:8000/api/tinder")
@@ -41,6 +42,7 @@ const Tinder = () => {
         setIsCardTrue(randomCard.Categorie.toLowerCase());
         setCardAnswer(randomCard.Description);
         setCardLogo("https://onlinepngtools.com/images/examples-onlinepngtools/semi-transparent.png");
+        setCardSourceUrl(randomCard.imageUrl);
     }
 
     useEffect(() => {
@@ -63,7 +65,7 @@ const Tinder = () => {
                     !isResultPage && <TinderCard save={handleSubmit} logo={CardLogo} content={CardContent} />
                 }
                 {
-                    isResultPage && <CarteReponse side={SubmittedAnswers} onNextMatch={handleNextMatch} content={CardAnswer} logo={CardLogo} isInfoTrue={isCardTrue}/>
+                    isResultPage && <CarteReponse side={SubmittedAnswers} onNextMatch={handleNextMatch} content={CardAnswer} logo={CardLogo} isInfoTrue={isCardTrue} sourceUrl={CardSourceUrl}/>
                 }
             </div>
         </>

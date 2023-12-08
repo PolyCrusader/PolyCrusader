@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 
 
-function CarteReponse ({ side, onNextMatch , content, logo, isInfoTrue}) {
+function CarteReponse ({ side, onNextMatch , content, logo, isInfoTrue, sourceUrl}) {
     const [isCorrect, setIsCorrect] = useState(null);
     console.log(side);
 
@@ -22,7 +22,7 @@ function CarteReponse ({ side, onNextMatch , content, logo, isInfoTrue}) {
         <h1> {isCorrect ? "Vous avez donné la bonne réponse" : "Vous avez donné la mauvaise réponse"} </h1>
         <div className="case-reponse" style={{backgroundColor: isInfoTrue ? "rgba(0,255,0,0.1)" : "rgba(255,0,0,0.1)"}}>
             <img src={logo} className="logo" alt="Vite logo" />
-            <p className = "text-reponse">{content}</p>
+            <p className = "text-reponse">{content}<br/><a href={sourceUrl}>Source</a></p>
         </div>
         <button className = "bouton" onClick={ () => onNextMatch() }> Next Match </button>
     </>
