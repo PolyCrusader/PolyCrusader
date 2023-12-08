@@ -49,6 +49,7 @@ function Mael() {
     camera.position.set(0, 0, 8);
     camera.lookAt(0, 0, 0);
 
+    //Mouse Movement
     const target = new THREE.Vector2();
     const windowHalf = new THREE.Vector2(window.innerWidth / 2, window.innerHeight / 2);
     document.addEventListener('mousemove', onMouseMove, false);
@@ -67,12 +68,10 @@ function Mael() {
           const phi = Math.acos(Math.random() * 2 - 1);
           const r = radius + Math.random() * (20 - radius);
       
-          // Convertissez les coordonnées sphériques en coordonnées cartésiennes
           const x = r * Math.sin(phi) * Math.cos(theta);
           const y = r * Math.sin(phi) * Math.sin(theta);
           const z = r * Math.cos(phi);
       
-          // Ajoutez le point au tableau
           points.push(new THREE.Vector3(x, y, z));
         }
       
@@ -81,7 +80,6 @@ function Mael() {
 
     const points = generateRandomPoints(500, 500);
 
-    // Créez des sphères aux positions des points pour visualiser
     const pointGeometry = new THREE.SphereGeometry(0.1);
     const pointMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
 
