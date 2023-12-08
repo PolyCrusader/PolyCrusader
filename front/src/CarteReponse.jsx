@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 
 
-function CarteReponse ({ side, onNextMatch }, content, logo, isInfoTrue) {
+function CarteReponse ({ side, onNextMatch }, content, logo, isInfoTru) {
     const [isCorrect, setIsCorrect] = useState(null);
     console.log(side);
 
