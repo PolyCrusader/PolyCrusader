@@ -222,6 +222,8 @@ function TierList() {
           ))}
         </div>
 
+        <div className="jump"></div>
+
         <div className="Action1" onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, 'Action1')} >
         <div className='TierAction'>
             <h2>Actions individuelles : installation</h2>

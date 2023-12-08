@@ -32,12 +32,11 @@ function Mael() {
     let earthModel;
     const loader = new GLTFLoader();
 
-    loader.load('../public/the_earth.gltf', function (gltf) {
+    loader.load('../public/earth.gltf', function (gltf) {
       earthModel = gltf.scene;
       earthModel.scale.set(1, 1, 1);
       scene.add(earthModel);
 
-      animate();
     }, undefined, function (error) {
       console.error(error);
     });
@@ -103,6 +102,7 @@ function Mael() {
       orbit.rotation.x += 0.01 * (target.y - orbit.rotation.x);
       orbit.rotation.y += 0.01 * (target.x - orbit.rotation.y);
     }
+    animate();
   }, []);
 
   return <canvas className="webgl"></canvas>;
