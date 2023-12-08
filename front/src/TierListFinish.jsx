@@ -2,6 +2,12 @@ import React, { useEffect } from 'react';
 import PopUp from './PopUp';
 import { useState } from 'react';
 
+import tierD from './assets/TierList/tierD.png';
+import tierC from './assets/TierList/tierC.png';
+import tierB from './assets/TierList/tierB.png';
+import tierA from './assets/TierList/tierA.png';
+import tierS from './assets/TierList/tierS.png';
+
 function TierListFinish() {
 
     const [S, setS] = useState([]);
@@ -21,6 +27,7 @@ function TierListFinish() {
       }
     
 
+   
     useEffect(() => {
         const newStockage = [];
         for (let i = 0; i < 10; i++) {
@@ -41,7 +48,9 @@ function TierListFinish() {
       {selectedCard && <PopUp card={selectedCard} onClose={onClose} id={2}/>}
       <div className="TierList">
         <div className="S" >
-        <div className='Tier'><h2>S</h2></div>
+        <div className='Tier'>
+          <img src={tierS} alt='tierS' />
+        </div>
           {S.map((card) => (
             <div className="Card" key={card.name}  onClick={() => setSelectedCard(card)}>
               <img src={card.image} alt={card.name} />
@@ -49,7 +58,9 @@ function TierListFinish() {
           ))}
         </div>
         <div className="A" >
-          <div className='Tier'><h2>A</h2></div>
+          <div className='Tier'>
+          <img src={tierA} alt='tierA' />
+          </div>
           {A.map((card) => (
             <div className="Card" key={card.name}  onClick={() => setSelectedCard(card)}>
               <img src={card.image} alt={card.name} />
@@ -57,7 +68,9 @@ function TierListFinish() {
           ))}
         </div>
         <div className="B" >
-        <div className='Tier'><h2>B</h2></div>
+        <div className='Tier'>
+        <img src={tierB} alt='tierB' />
+        </div>
           {B.map((card) => (
             <div className="Card" key={card.name}  onClick={() => setSelectedCard(card)}>
               <img src={card.image} alt={card.name} />
@@ -65,7 +78,9 @@ function TierListFinish() {
           ))}
         </div>
         <div className="C" >
-        <div className='Tier'><h2>C</h2></div>
+        <div className='Tier'>
+        <img src={tierC} alt='tierC' />
+        </div>
           {C.map((card) => (
             <div className="Card" key={card.name}  onClick={() => setSelectedCard(card)}>
               <img src={card.image} alt={card.name} />
@@ -73,7 +88,9 @@ function TierListFinish() {
           ))}
         </div>
         <div className="D" >
-        <div className='Tier'><h2>D</h2></div>
+        <div className='Tier'>
+        <img src={tierD} alt='tierD' />
+        </div>
           {D.map((card) => (
             <div className="Card" key={card.name}  onClick={() => setSelectedCard(card)}>
               <img src={card.image} alt={card.name} />

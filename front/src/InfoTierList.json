@@ -1,0 +1,99 @@
+[
+    {
+        "Name":"Actions individuelles : installation",
+        "Description":"Cette catégorie comporte des actions uniques qui peuvent être misent en place par n'importe qui à un coût plus ou moins haut et qui permettent de réduire l'émission de gaz à effet de serre, notamment en réduisant la consomation d'énergie.",
+        "Actions":[
+            {
+                "Description":"Utiliser des couleurs claires dans l’habitation pour réduire le besoin d’intensité des lampes."
+    
+            },
+            {
+                "Description":"Garder le réfrigérateur à température ambiante pour réduire sa consommation d’électricité."
+            },
+            {
+                "Description":"Isoler les ouvertures, le chauffage et les outillages."
+            },
+            {
+                "Description": "Utiliser un véhicule éléctrique."
+            },
+            {
+                "Description": "Changer de chaudière."
+            }
+        ]
+
+        
+                        
+    },
+    {
+        "Name":"Actions individuelles : habitude",
+        "Description":"Cette catégorie comporte des actions, plus ou moins rapide, à effectuer régulièrement. Ce sont des changements d'habitudes significatifs",
+        "Actions":[
+
+            {
+                "Description":"Adopter un régime végétarien."
+            },
+            {
+                "Description": "Nettoyer ses radiateurs hydrauliques régulièrement."
+            },
+            {
+                "Description": "Préférer utiliser des transports en communs ou des vélos à la voiture."
+            }
+
+        ]
+        
+                        
+    },
+    {
+        "Name":"Actions gouvernementales",
+        "Description":"Cette catégorie contient les solutions à grandes échelles misent en place par le gouvernement.",
+        "Actions":[
+
+            {
+                "Description":"Inciter à l'utilisation de transport peu ou pas poluant"
+            },
+            {
+                "Description": "protéger la biodiversité (limiter l'émission de lumière, protéger des zones naturelles)"
+            },
+            {
+                "Description": "inciter à une meilleur isolation thermique des batiments "
+            },
+            {
+                "Description": "Développer les énergies renouvelables"
+            },
+            {
+                "Description" : "simplifier le reciclage des déchets"
+            },
+            {
+                "Description" : "Aides diverses pour l'investissement dans les énergies renouvelable"
+            }
+
+        ]
+        
+                        
+    },
+    {
+        "Name":"Petits gestes du quotidien","Description":"Ce sont les petites actions qui ne coutent rien à faire et qui ne prennent pas de temps.",
+        "Actions":[
+
+            {
+                "Description": "Eteindre ses appareils lorsque l'on se deplace."
+            },
+            {
+                "Description": "Sécher son linge à l'air libre."
+            },
+            {
+                "Description": "Éteindre les lumières en sortant d’une pièce."
+            },
+            {
+                "Description": "Éteindre son four ou ses plaques avant la fin de la cuisson pour économiser l’électricité."
+            }
+
+        ]
+
+        
+                        
+    }
+        
+                        
+                    
+]

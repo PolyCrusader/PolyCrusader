@@ -3,6 +3,12 @@ import { useState } from 'react';
 import './TierList.scss';
 import PopUp from './PopUp';
 import TierListFinish from './TierListFinish';
+import data from './InfoTierList.json';
+import tierD from './assets/TierList/tierD.png';
+import tierC from './assets/TierList/tierC.png';
+import tierB from './assets/TierList/tierB.png';
+import tierA from './assets/TierList/tierA.png';
+import tierS from './assets/TierList/tierS.png';
 
 function TierList() {
   const [Action1, setAction1] = useState([]);
@@ -28,6 +34,14 @@ function TierList() {
       this.description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.";
     }
   }
+
+  useEffect(() => {
+    fetch('http://localhost:8000/api/tierlist')
+    .then(response => response.json())
+    .catch(error => console.log(error))
+  }, []);
+  
+  
 
   useEffect(() => {
     const newStockage = [];
@@ -154,10 +168,13 @@ function TierList() {
   return (
     <div>
       <h1>TierList</h1>
+      
       {selectedCard && <PopUp card={selectedCard} onClose={onClose} id={1}/>}
       <div className="TierList">
         <div className="S" onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, 'S')}>
-        <div className='Tier'><h2>S</h2></div>
+        <div className='Tier'>
+        <img src={tierS} alt='tierS'/>
+        </div>
           {S.map((card) => (
             <div className="Card" key={card.name} onDrag={() => handleDragStart(card)} onClick={() => setSelectedCard(card)}>
               <img src={card.image} alt={card.name} />
@@ -165,7 +182,9 @@ function TierList() {
           ))}
         </div>
         <div className="A" onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, 'A')}>
-          <div className='Tier'><h2>A</h2></div>
+          <div className='Tier'>
+            <img src={tierA} alt='tierA'/>
+          </div>
           {A.map((card) => (
             <div className="Card" key={card.name} onDrag={() => handleDragStart(card)} onClick={() => setSelectedCard(card)}>
               <img src={card.image} alt={card.name} />
@@ -173,7 +192,9 @@ function TierList() {
           ))}
         </div>
         <div className="B" onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, 'B')}>
-        <div className='Tier'><h2>B</h2></div>
+        <div className='Tier'>
+            <img src={tierB} alt='tierB'/>
+        </div>
           {B.map((card) => (
             <div className="Card" key={card.name} onDrag={() => handleDragStart(card)} onClick={() => setSelectedCard(card)}>
               <img src={card.image} alt={card.name} />
@@ -181,7 +202,9 @@ function TierList() {
           ))}
         </div>
         <div className="C" onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, 'C')}>
-        <div className='Tier'><h2>C</h2></div>
+        <div className='Tier'>
+            <img src={tierC} alt='tierC'/>
+        </div>
           {C.map((card) => (
             <div className="Card" key={card.name} onDrag={() => handleDragStart(card)} onClick={() => setSelectedCard(card)}>
               <img src={card.image} alt={card.name} />
@@ -189,7 +212,9 @@ function TierList() {
           ))}
         </div>
         <div className="D" onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, 'D')}>
-        <div className='Tier'><h2>D</h2></div>
+        <div className='Tier'>
+            <img src={tierD} alt='tierD'/>
+        </div>
           {D.map((card) => (
             <div className="Card" key={card.name} onDrag={() => handleDragStart(card)} onClick={() => setSelectedCard(card)}>
               <img src={card.image} alt={card.name} />
