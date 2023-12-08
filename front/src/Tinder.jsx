@@ -9,6 +9,8 @@ const Tinder = () => {
 
     const [CardContent, setCardContent] = useState(null);
     const [isCardTrue, setIsCardTrue] = useState(null);
+    const [CardLogo, setCardLogo] = useState(null);
+    const [CardAnswer, setCardAnswer] = useState(null);
 
     useEffect(() => {
         fetch("http://89.168.46.26:8000/api/tinder")
@@ -35,8 +37,10 @@ const Tinder = () => {
     const getCardContent = () => {
         const randomIndex = Math.floor(Math.random() * apiData.length);
         const randomCard = apiData[randomIndex];
-        console.log(randomCard.Description);
-            setCardContent(randomCard.Description);
+        setCardContent(randomCard.DescriptionCategorie);
+        setIsCardTrue(randomCard.Categorie.toLowerCase());
+        setCardAnswer(randomCard.Description);
+        setCardLogo("https://onlinepngtools.com/images/examples-onlinepngtools/semi-transparent.png");
     }
 
     useEffect(() => {
@@ -56,10 +60,10 @@ const Tinder = () => {
             <p className="gras">3. Points et Niveaux : </p> <p>Gagnez des points en trouvant les fausses informations. Plus vous en découvrez, plus vous montez de niveau. <br/> </p>
             <div className="tinder-page">
                 {
-                    !isResultPage && <TinderCard save={handleSubmit} logo="" content={CardContent} />
+                    !isResultPage && <TinderCard save={handleSubmit} logo={CardLogo} content={CardContent} />
                 }
                 {
-                    isResultPage && <CarteReponse side={SubmittedAnswers} onNextMatch={handleNextMatch} content="" logo="" isInfoTrue=""/>
+                    isResultPage && <CarteReponse side={SubmittedAnswers} onNextMatch={handleNextMatch} content={CardAnswer} logo={CardLogo} isInfoTrue={isCardTrue}/>
                 }
             </div>
         </>

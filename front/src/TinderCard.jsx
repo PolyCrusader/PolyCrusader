@@ -2,7 +2,6 @@ import viteLogo from '/vite.svg'
 import { useState, useEffect } from "react";
 
 const TinderCard = ({ save, content, logo }) => {
-  logo = viteLogo;
   console.log('here we have this content: ', content);
 
   const [isLeft, setIsLeft] = useState(false);
