@@ -10,6 +10,10 @@ import tierB from './assets/TierList/tierB.png';
 import tierA from './assets/TierList/tierA.png';
 import tierS from './assets/TierList/tierS.png';
 
+
+
+
+
 function TierList() {
   const [Action1, setAction1] = useState([]);
   const [Action2, setAction2] = useState([]);
@@ -31,11 +35,13 @@ function TierList() {
 
   class Card {
     constructor(name, image,tier,id,description) {
+    
       this.name = name;
       this.image = image;
       this.tier =tier;
       this.id = id;
       this.description = description;
+      
     }
   }
 
@@ -55,7 +61,7 @@ function TierList() {
             case 0:
 
             for (let i = 0; i < data[y].Actions.length; i++) {
-                let card = new Card("card " + i, "https://picsum.photos/200","Action1",i,data[y].Actions[i].Description);
+                let card = new Card("card " + i, data[y].Actions[i].img,"Action1",i,data[y].Actions[i].Description);
                 newStockage.push(card);
               }
               setAction1(newStockage);
@@ -65,7 +71,7 @@ function TierList() {
             case 1:
 
                 for (let i = 0; i < data[y].Actions.length; i++) {
-                    let card = new Card("card " + i, "https://picsum.photos/200","Action2",i,data[y].Actions[i].Description);
+                    let card = new Card("card " + i, data[y].Actions[i].img,"Action2",i,data[y].Actions[i].Description);
                     console.log(i,data[y].Actions.Description);
                     newStockage.push(card);
                   }
@@ -75,7 +81,7 @@ function TierList() {
             case 2:
 
             for (let i = 0; i < data[y].Actions.length; i++) {
-                let card = new Card("card " + i, "https://picsum.photos/200","Action3",i,data[y].Actions[i].Description);
+                let card = new Card("card " + i, data[y].Actions[i].img,"Action3",i,data[y].Actions[i].Description);
                 newStockage.push(card);
               }
               setAction3(newStockage);
@@ -84,7 +90,7 @@ function TierList() {
             case 3:
 
                 for (let i = 0; i < data[y].Actions.length; i++) {
-                    let card = new Card("card " + i, "https://picsum.photos/200","Action4",i,data[y].Actions[i].Description);
+                    let card = new Card("card " + i,data[y].Actions[i].img,"Action4",i,data[y].Actions[i].Description);
                     newStockage.push(card);
                   }
                   setAction4(newStockage);

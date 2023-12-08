@@ -45,26 +45,26 @@ function TierListFinish() {
             console;log(description);
             switch (data[y].Actions[i].Tier) {
               case "S":
-                 card = new Card("card " + nb, "https://picsum.photos/200","S",i,description);
+                 card = new Card("card " + nb, data[y].Actions[i].img,"S",i,description);
                  setS(prevS => [...prevS, card]); 
                 break;
               case "A":
-                   card = new Card("card " + nb, "https://picsum.photos/200","A",i,description);
+                   card = new Card("card " + nb, data[y].Actions[i].img,"A",i,description);
                    setA(prevA => [...prevA, card]); 
                   break;
                 
 
               case "B":
-                    card = new Card("card " + nb, "https://picsum.photos/200","B",i,description);
+                    card = new Card("card " + nb, data[y].Actions[i].img,"B",i,description);
                     setB(prevB => [...prevB, card]); 
                    break;
               case "C":
-                    card = new Card("card " + nb, "https://picsum.photos/200","C",i,description);
+                    card = new Card("card " + nb, data[y].Actions[i].img,"C",i,description);
                     setC(prevC => [...prevC, card]); 
                    break;
                 
               case "D":
-                   card = new Card("card " + nb, "https://picsum.photos/200","D",i,description);
+                   card = new Card("card " + nb,data[y].Actions[i].img,"D",i,description);
                    setD(prevD => [...prevD, card]); 
                   break;
                 

@@ -5,23 +5,28 @@
         "Actions":[
             {
                 "Tier":"D",
+                "img":"./assets/TierList/CasePics/mur_clairs.jpg",
                 "Description":"Utiliser des couleurs claires dans l’habitation pour réduire le besoin d’intensité des lampes."
     
             },
             {
                 "Tier": "D",
+                "img":"./assets/TierList/CasePics/refrigirateur.jpg",
                 "Description":"Garder le réfrigérateur à température ambiante pour réduire sa consommation d’électricité."
             },
             {
                 "Tier": "A",
+                "img":"./assets/TierList/CasePics/isolation_tuyaux.jpg",
                 "Description":"Isoler les ouvertures, le chauffage et les outillages."
             },
             {
                 "Tier":"A",
+                "img":"./assets/TierList/CasePics/vehicule_electrique.jpg",
                 "Description": "Utiliser un véhicule éléctrique."
             },
             {
                 "Tier":"B",
+                "img":"./assets/TierList/CasePics/chaudiere.png",
                 "Description": "Changer de chaudière."
             }
         ]
@@ -36,14 +41,17 @@
 
             {
                 "Tier":"A",
+                "img":"./assets/TierList/CasePics/regime_vege.jpeg",
                 "Description":"Adopter un régime végétarien."
             },
             {
                 "Tier":"B",
+                "img":"./assets/TierList/CasePics/radiateur.jpg",
                 "Description": "Nettoyer ses radiateurs hydrauliques régulièrement."
             },
             {
                 "Tier":"A",
+                "img":"./assets/TierList/CasePics/bus.jpg",
                 "Description": "Préférer utiliser des transports en communs ou des vélos à la voiture."
             }
 
@@ -56,29 +64,26 @@
         "Description":"Cette catégorie contient les solutions à grandes échelles misent en place par le gouvernement.",
         "Actions":[
 
-            {
-                "Tier":"A",
-                "Description":"Inciter à l'utilisation de transport peu ou pas poluant"
-            },
+            
             {
                 "Tier":"S",
-                "Description": "protéger la biodiversité (limiter l'émission de lumière, protéger des zones naturelles)"
+                "img":"./assets/TierList/CasePics/biodiversite.jpg",
+                "Description": "Protéger la biodiversité (limiter l'émission de lumière, protéger des zones naturelles)."
             },
             {
                 "Tier":"A",
-                "Description": "inciter à une meilleur isolation thermique des batiments "
-            },
-            {
-                "Tier":"S",
-                "Description": "Développer les énergies renouvelables"
+                "img":"./assets/TierList/CasePics/isolation_batiment.png",
+                "Description": "Inciter à une meilleur isolation thermique des batiments."
             },
             {
                 "Tier":"A",
-                "Description" : "simplifier le reciclage des déchets"
+                "img":"./assets/TierList/CasePics/recyclage.jpg",
+                "Description" : "Simplifier le recyclage des déchets."
             },
             {
                 "Tier":"S",
-                "Description" : "Aides diverses pour l'investissement dans les énergies renouvelable"
+                "img":"./assets/TierList/CasePics/energie_renouvelable.jpg",
+                "Description" : "Aides diverses pour l'investissement dans les énergies renouvelables."
             }
 
         ]
@@ -92,18 +97,22 @@
 
             {
                 "Tier":"C",
+                "img":"./assets/TierList/CasePics/eteindre_appareil.jpg",
                 "Description": "Eteindre ses appareils lorsque l'on se deplace."
             },
             {
                 "Tier":"D",
+                "img":"./assets/TierList/CasePics/linge_air.png",
                 "Description": "Sécher son linge à l'air libre."
             },
             {
                 "Tier":"C",
+                "img":"./assets/TierList/CasePics/eteindre_lumiere.png",
                 "Description": "Éteindre les lumières en sortant d’une pièce."
             },
             {
                 "Tier":"D",
+                "img":"./assets/TierList/CasePics/eteindre_four.png",
                 "Description": "Éteindre son four ou ses plaques avant la fin de la cuisson pour économiser l’électricité."
             }
 
