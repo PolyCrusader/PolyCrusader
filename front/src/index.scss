@@ -83,3 +83,9 @@ button:focus-visible {
 .headerBox{
   z-index: 999 !important;
 }
+
+.bouton{
+  position: relative;
+  z-index: 9999 !important;
+  margin-bottom: 5rem;
+}
