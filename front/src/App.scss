@@ -107,3 +107,17 @@
   position: relative;
   margin: 5rem;
 }
+
+.TinderText {
+  font-size: 1.2rem;
+  position: relative;
+  text-align: justify;
+  color: $mocha-text;
+  padding-inline: 5rem;
+  text-shadow: 5px 5px 30px black;
+  margin: 10vw;
+  border: solid white;
+  border-radius: 2rem;
+  background-color: rgba(0.1, 0.1, 0.1, 0.6);
+  backdrop-filter: blur(10px);
+}
