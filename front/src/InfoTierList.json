@@ -49,24 +49,20 @@
         "Actions":[
 
             {
-                "Description":"Inciter à l'utilisation de transport peu ou pas poluant"
+                "Description":"Inciter à l'utilisation de transport peu ou pas polluant."
             },
             {
-                "Description": "protéger la biodiversité (limiter l'émission de lumière, protéger des zones naturelles)"
+                "Description": "Protéger la biodiversité (limiter l'émission de lumière, protéger des zones naturelles)."
             },
             {
-                "Description": "inciter à une meilleur isolation thermique des batiments "
+                "Description": "Inciter à une meilleur isolation thermique des batiments."
             },
             {
                 "Description": "Développer les énergies renouvelables"
             },
             {
-                "Description" : "simplifier le reciclage des déchets"
-            },
-            {
-                "Description" : "Aides diverses pour l'investissement dans les énergies renouvelable"
+                "Description" : "Simplifier le recyclage des déchets."
             }
-
         ]
         
                         
