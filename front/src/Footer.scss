@@ -1,0 +1,13 @@
+@import "./assets/catpuccin.scss";
+
+.footerBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: $mocha-base;
+  color: $mocha-text;
+}
