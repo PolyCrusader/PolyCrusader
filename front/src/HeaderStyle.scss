@@ -7,8 +7,8 @@
   top: 0;
   left: 0;
   width: 100vw;
-  background: $mocha-base;
-  color: $mocha-text;
+  background: rgb(1, 3, 14);
+  color: #cdd6fa;
 }
 
 .Titre {
@@ -20,7 +20,7 @@
 .button {
   border-radius: 2rem;
   border: none;
-  background-color: $mocha-base;
+  background-color: transparent;
 
   padding: 1.5rem;
 
