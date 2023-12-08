@@ -28,6 +28,7 @@
 .B{
     border: 1px solid black;
     min-height: 120px;
+    
     display: flex;
     align-items: center;
     flex-wrap: wrap; 
@@ -70,7 +71,7 @@
     background-color: grey;
     padding: 1rem;
 }
-   
+
 
    
 .Card{
@@ -120,7 +121,7 @@
 }
 
 .PopUp1 img{
-    
+
     margin: 20px;
 }
 
@@ -140,7 +141,7 @@
     top: 190%;
     left: 50%;
     transform: translate(-50%, -70%);
-    
+
 }
 
 .Tier img{
