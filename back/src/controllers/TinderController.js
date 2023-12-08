@@ -1,28 +1,49 @@
 const Tinder = require('../models/Tinder');
 const mongoose = require('mongoose');
 
-exports.createThing = (req, res, next) => {
-    const tinder = new Tinder({
-        ImageId: req.body.ImageId,
-        Categorie: req.body.Categorie,
-        DescriptionCategorie: req.body.DescriptionCategorie,
-        imageUrl: req.body.imageUrl,
-        Description: req.body.Description
-    });
-    tinder.save().then(
-        () => {
-            res.status(201).json({
-                message: 'Post saved successfully!'
-            });
+const { body, validationResult } = require('express-validator');
+
+exports.createThing = [
+    // Validation des données d'entrée
+    body('ImageId').isNumeric(),
+    body('Categorie').isString().notEmpty(),
+    body('DescriptionCategorie').isString().notEmpty(),
+    body('imageUrl').isString().notEmpty(),
+    body('Description').isString().notEmpty(),
+
+    // Middleware de validation
+    (req, res, next) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
         }
-    ).catch(
-        (error) => {
-            res.status(400).json({
-                error: error
+        next();
+    },
+
+    // Fonction de création de l'objet Thing
+    (req, res, next) => {
+        const tinder = new Tinder({
+            ImageId: req.body.ImageId,
+            Categorie: req.body.Categorie,
+            DescriptionCategorie: req.body.DescriptionCategorie,
+            imageUrl: req.body.imageUrl,
+            Description: req.body.Description
+        });
+
+        tinder.save()
+            .then(() => {
+                res.status(201).json({
+                    message: 'Post saved successfully!'
+                });
+            })
+            .catch((error) => {
+                res.status(400).json({
+                    error: error
+                });
             });
-        }
-    );
-};
+    }
+];
+
 exports.getOneThing = (req, res, next) => {
     Tinder.findOne({
         ImageId: req.params.ImageId
