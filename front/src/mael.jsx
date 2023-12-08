@@ -1,10 +1,4 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import AppRouter from './Router.jsx'
-import { useEffect } from 'react'
-import './index.scss'
-
-
+import React, { useEffect } from 'react';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
@@ -33,6 +27,13 @@ function Mael() {
     const light = new THREE.PointLight(0xffffff, 1000);
     light.position.set(-7, 7, 7);
     scene.add(light);
+
+    // Earth
+    const geometry2 = new THREE.SphereGeometry(1, 20);
+    const material2 = new THREE.MeshBasicMaterial({ color: 0xfff0f0, wireframe: true });
+    const sphere = new THREE.Mesh(geometry2, material2);
+    sphere.position.x = 0;
+    scene.add(sphere);
 
     // Import models
     let earthModel;
@@ -69,11 +70,12 @@ function Mael() {
     function animate() {
       requestAnimationFrame(animate);
       renderer.render(scene, camera);
+      sphere.rotation.x += 0.01;
       if (earthModel) {
-        earthModel.rotation.y += 0.01;
+        earthModel.rotation.x += 0.01;
       }
 
-      target.x = (1 - mouse.x) * 0.005;
+      target.x = (1 - mouse.x) * 0.001;
       target.y = (1 - mouse.y) * 0.001;
 
       orbit.rotation.x += 0.01 * (target.y - orbit.rotation.x);
