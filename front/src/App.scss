@@ -19,18 +19,20 @@
   align-items: center;
   position: absolute;
   z-index: 0;
+
+  backdrop-filter: blur(10px);
 }
 
 .right-div{
   right: 0;
   cursor: url(./assets/check-o.svg), auto;
-  background-color: rgba(0, 255, 0, 0.1);
+  background-color: rgba(0, 255, 0, 0.3);
 }
 
 .left-div{
   left: 0;
   cursor: url(./assets/close-o.svg), auto;
-  background-color: rgba(255, 0, 0, 0.1);
+  background-color: rgba(255, 0, 0, 0.3);
 }
 
 .tinder-card{
@@ -99,6 +101,8 @@
   &:hover {
     transform: scale(1.1);
   }
+
+  backdrop-filter: blur(10px);
 }
 
 .logo{
