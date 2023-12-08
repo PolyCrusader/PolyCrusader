@@ -7,11 +7,7 @@ const LandingPageHome = () => {
     <div className="container">
       <Mael></Mael>
       <div className="textBox">
-        Alors que le Giec a rendu en mars la synthèse de son dernier rapport qui
-        dresse un constat sans ambiguïté sur la crise climatique, le journal 20
-        Minutes revient en vidéos sur 5 des avertissements les plus marques
-        faits ces dernières années par António Guterre, l’actuel secrétaire
-        général de l’ONU.
+          Le changement climatique est indéniable, nous affecte tous, et nous affectera de plus en plus si nous ne commençons pas à agir dès à présent. Les solutions sont multiples, et les problèmes également, mais nous pouvons changer les choses grâce à une compréhension individuelle des enjeux et la puissance de la collectivité.
       </div>
     </div>
   );
