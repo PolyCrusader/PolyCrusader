@@ -28,13 +28,6 @@ function Mael() {
     light.position.set(-7, 7, 7);
     scene.add(light);
 
-    // Earth
-    const geometry2 = new THREE.SphereGeometry(1, 20);
-    const material2 = new THREE.MeshBasicMaterial({ color: 0xfff0f0, wireframe: true });
-    const sphere = new THREE.Mesh(geometry2, material2);
-    sphere.position.x = 0;
-    scene.add(sphere);
-
     // Import models
     let earthModel;
     const loader = new GLTFLoader();
@@ -44,7 +37,6 @@ function Mael() {
       earthModel.scale.set(1, 1, 1);
       scene.add(earthModel);
 
-      // Call animate here to start animation after the model is loaded
       animate();
     }, undefined, function (error) {
       console.error(error);
@@ -67,12 +59,44 @@ function Mael() {
       mouse.y = event.clientY - windowHalf.y;
     }
 
+    function generateRandomPoints(radius, numPoints) {
+        const points = [];
+      
+        for (let i = 0; i < numPoints; i++) {
+          const theta = Math.random() * Math.PI * 2; 
+          const phi = Math.acos(Math.random() * 2 - 1);
+          const r = radius + Math.random() * (20 - radius);
+      
+          // Convertissez les coordonnées sphériques en coordonnées cartésiennes
+          const x = r * Math.sin(phi) * Math.cos(theta);
+          const y = r * Math.sin(phi) * Math.sin(theta);
+          const z = r * Math.cos(phi);
+      
+          // Ajoutez le point au tableau
+          points.push(new THREE.Vector3(x, y, z));
+        }
+      
+        return points;
+      }
+
+    const points = generateRandomPoints(500, 500);
+
+    // Créez des sphères aux positions des points pour visualiser
+    const pointGeometry = new THREE.SphereGeometry(0.1);
+    const pointMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
+
+    points.forEach(point => {
+    const pointMesh = new THREE.Mesh(pointGeometry, pointMaterial);
+    pointMesh.position.copy(point);
+    scene.add(pointMesh);
+    });
+
     function animate() {
       requestAnimationFrame(animate);
       renderer.render(scene, camera);
-      sphere.rotation.x += 0.01;
+
       if (earthModel) {
-        earthModel.rotation.x += 0.01;
+        earthModel.rotation.y += 0.005;
       }
 
       target.x = (1 - mouse.x) * 0.001;
@@ -81,9 +105,6 @@ function Mael() {
       orbit.rotation.x += 0.01 * (target.y - orbit.rotation.x);
       orbit.rotation.y += 0.01 * (target.x - orbit.rotation.y);
     }
-
-    // animate(); // Don't call animate here, as it should be triggered after the model is loaded
-
   }, []);
 
   return <canvas className="webgl"></canvas>;
