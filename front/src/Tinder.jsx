@@ -36,6 +36,17 @@ const Tinder = () => {
         getCardContent();
     }
 
+    const RollPics = [
+            "https://www.leparisien.fr/resizer/xyl_FHruswkd4a5Ed0n5FO-skZE=/932x582/cloudfront-eu-central-1.images.arcpublishing.com/leparisien/KP6C2NIYDZEARCVJZBWTAL5GU4.jpg",
+            "https://www.sirenergies.com/content/images/2022/10/climate-change.jpeg",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1_c9yGI8mdU91ZvFf2s7gGPGCDeKWlR8tkw",
+            "https://cdn.futura-sciences.com/sources/images/actu/quand-rechauffement-va-arreter.jpg",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFqmd68hiUJAYq3DGyA05-ynwG4OvbpNnCnw&usqp=CAU",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLxolyZAxdMW2j_yM9LWG63V-2z2s5M8In5A&usqp=CAU"
+    ];
+
+    let randomPic = RollPics[Math.floor(Math.random() * RollPics.length)];
+
     const getCardContent = () => {
         let randomIndex = Math.floor(Math.random() * apiData.length);
         let randomCard = apiData[randomIndex];
@@ -43,9 +54,11 @@ const Tinder = () => {
         setIsCardTrue(randomCard.Categorie.toLowerCase());
         console.log(randomCard.Categorie.toLowerCase());
         setCardAnswer(randomCard.Description);
-        setCardLogo("https://onlinepngtools.com/images/examples-onlinepngtools/semi-transparent.png");
+        setCardLogo(randomPic);
         setCardSourceUrl(randomCard.imageUrl);
     }
+
+    
 
     useEffect(() => {
         if(apiData) {

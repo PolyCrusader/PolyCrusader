@@ -80,19 +80,30 @@
   height: 100%;
   object-fit: cover;
   border: 2px solid #110202;
+  margin: 3rem;
   box-shadow: 0 0 0 2px #917878;
 }
 
 .case-reponse {
-  width: 100%;
+  width: 88vw;
   height: 100%;
   object-fit: cover;
   border: 2px solid #110202 ;
   box-shadow: 0 0 0 2px #917878;
   display: inline-flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: row;
   transition: all 0.3s ease-in-out;
+  margin: 3rem;
   &:hover {
     transform: scale(1.1);
   }
+}
+
+.logo{
+  height: 15rem;
+  width: 15rem;
+  position: relative;
+  margin: 5rem;
 }

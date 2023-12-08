@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 
 const TinderCard = ({ save, content, logo }) => {
-  console.log('here we have this content: ', content);
 
   const [isLeft, setIsLeft] = useState(false);
   const [isRight, setIsRight] = useState(false);
