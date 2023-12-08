@@ -50,7 +50,6 @@ const Tinder = () => {
     useEffect(() => {
         if(apiData) {
             getCardContent();
-            console.log('Content set to: ', CardContent);
         }
     }
     , [apiData]);

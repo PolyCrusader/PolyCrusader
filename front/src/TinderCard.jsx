@@ -1,4 +1,3 @@
-import viteLogo from '/vite.svg'
 import { useState, useEffect } from "react";
 
 const TinderCard = ({ save, content, logo }) => {
