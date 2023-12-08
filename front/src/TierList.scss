@@ -1,7 +1,10 @@
 .TierList{
     border: 1px solid black;
     width: 80vw;
-    
+}
+
+.S,.A,.B,.C,.D{
+    backdrop-filter: blur(10px);
 }
 
 .S{
@@ -11,6 +14,7 @@
     align-items: center;
     flex-wrap: wrap; 
     flex-direction: row;
+    background-color: #FF7F7F;
 
 }
 .A{
@@ -19,14 +23,15 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap; 
+    background-color: #FFBF7F;
 }
 .B{
     border: 1px solid black;
     min-height: 120px;
-    
     display: flex;
     align-items: center;
     flex-wrap: wrap; 
+    background-color: #FFDF7F;
 }
 .C{
     border: 1px solid black;
@@ -34,6 +39,7 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap; 
+    background-color: #FFFF7F;
 }
 .D{
     border: 1px solid black;
@@ -41,6 +47,7 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap; 
+    background-color: #BFFF7F;
 }
 
 
@@ -55,11 +62,13 @@
 .TierAction{
     border: 1px solid black;
     height: 120px;
-    width: 100%;
+    width: 77.68vw;
     margin-right: 3px;
     margin-bottom: 3px;
     z-index: 1;
     position: relative;
+    background-color: grey;
+    padding: 1rem;
 }
    
 
@@ -145,4 +154,20 @@
     right: 0;
     margin: 20px;
     cursor: pointer;
+}
+
+h1{
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.Submit{
+    margin: 3rem;
+    height: 3rem;
+    width: 10rem;
+    border-radius: 10px;
+}
+
+.jump{
+    height: 1rem;
 }

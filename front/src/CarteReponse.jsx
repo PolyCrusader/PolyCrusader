@@ -16,7 +16,7 @@ function CarteReponse ({ side, onNextMatch , content, logo, isInfoTrue, sourceUr
     console.log(sourceUrl);
 
     useEffect(() => {
-        sourceUrl == "o" ? setSourceUrl("https://www.youtube.com/watch?v=dQw4w9WgXcQ") : setSourceUrl(sourceUrl);
+        sourceUrl == "o" ? setSourceUrl("./iceberg") : setSourceUrl(sourceUrl);
     },[sourceUrl]);
   return (
     <>
