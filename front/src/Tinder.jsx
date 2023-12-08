@@ -33,13 +33,15 @@ const Tinder = () => {
     const handleNextMatch = () => {
         setIsResultPage(!isResultPage);
         console.log("next match");
+        getCardContent();
     }
 
     const getCardContent = () => {
-        const randomIndex = Math.floor(Math.random() * apiData.length);
-        const randomCard = apiData[randomIndex];
+        let randomIndex = Math.floor(Math.random() * apiData.length);
+        let randomCard = apiData[randomIndex];
         setCardContent(randomCard.DescriptionCategorie);
         setIsCardTrue(randomCard.Categorie.toLowerCase());
+        console.log(randomCard.Categorie.toLowerCase());
         setCardAnswer(randomCard.Description);
         setCardLogo("https://onlinepngtools.com/images/examples-onlinepngtools/semi-transparent.png");
         setCardSourceUrl(randomCard.imageUrl);

@@ -20,9 +20,12 @@ function CarteReponse ({ side, onNextMatch , content, logo, isInfoTrue, sourceUr
   return (
     <>
         <h1> {isCorrect ? "Vous avez donné la bonne réponse" : "Vous avez donné la mauvaise réponse"} </h1>
-        <div className="case-reponse" style={{backgroundColor: isInfoTrue ? "rgba(0,255,0,0.1)" : "rgba(255,0,0,0.1)"}}>
+        <div className="case-reponse" style={{backgroundColor: isCorrect ? "rgba(0,255,0,0.1)" : "rgba(255,0,0,0.1)"}}>
             <img src={logo} className="logo" alt="Vite logo" />
-            <p className = "text-reponse">{content}<br/><a href={sourceUrl}>Source</a></p>
+            <p className = "text-reponse">
+                {content}<br/>
+                {isInfoTrue && <a href={sourceUrl}>Source</a>}
+            </p>
         </div>
         <button className = "bouton" onClick={ () => onNextMatch() }> Next Match </button>
     </>
