@@ -1,70 +1,84 @@
-.TierList{
+.TierList {
     border: 1px solid black;
     width: 80vw;
 }
 
-.S,.A,.B,.C,.D{
+.S,
+.A,
+.B,
+.C,
+.D {
     backdrop-filter: blur(10px);
 }
 
-.S,.A,.B,.C,.D{
+.S,
+.A,
+.B,
+.C,
+.D {
     backdrop-filter: blur(10px);
 }
 
-.S{
+.S {
     border: 1px solid black;
     min-height: 120px;
     display: flex;
     align-items: center;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     flex-direction: row;
     background-color: #FF7F7F;
-
 }
-.A{
+
+.A {
     border: 1px solid black;
     min-height: 120px;
     display: flex;
     align-items: center;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     background-color: #FFBF7F;
 }
-.B{
+
+.B {
     border: 1px solid black;
     min-height: 120px;
-    
+
     display: flex;
     align-items: center;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     background-color: #FFDF7F;
 }
-.C{
+
+.C {
     border: 1px solid black;
     min-height: 120px;
     display: flex;
     align-items: center;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     background-color: #FFFF7F;
 }
-.D{
+
+.D {
     border: 1px solid black;
     min-height: 120px;
     display: flex;
     align-items: center;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     background-color: #BFFF7F;
 }
 
 
 
-.Action1,.Action2,.Action3,.Action4{
+.Action1,
+.Action2,
+.Action3,
+.Action4 {
     display: flex;
     align-items: center;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     border: 1px solid black;
 }
 
-.TierAction{
+.TierAction {
     border: 1px solid black;
     height: 120px;
     width: 77.68vw;
@@ -77,83 +91,79 @@
 }
 
 
-   
-.Card{
+
+.Card {
     margin-right: 3px;
     z-index: 1;
-
 }
 
-.Card :hover{
+.Card :hover {
     transform: scale(1.1);
 }
 
 
-.Card img{
+.Card img {
     height: 120px;
     width: 120px;
-    
 }
 
-
-
-.Tier{
-    border: 1px solid black;
-    
-    height: 120px;
-    width: 120px;
-    
+.Tier {
+    border-right: 2px solid black;
+    height: 130px;
+    width: 130px;
 }
 
+.PopUp1 img {
+    margin: 20px;
+    width: 300px;
+    height: 300px;
+    border-radius: 40px;
+    border: 2px solid black;
+}
 
+.PopUp2 img {
+    margin: 20px;
+    width: 300px;
+    height: 300px;
+    border-radius: 40px;
+    border: 2px solid black;
+}
 
-    
-
-
-.PopUp1{
+.PopUp1 {
     height: 500px;
     width: 500px;
     z-index: 999;
     background-color: white;
+    color: black;
     border-radius: 40px;
-    border: 1px solid black;
+    border: 2px solid black;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
+
 }
 
-.PopUp1 img{
-
-    margin: 20px;
-}
-
-.PopUp2 img{
-    
-    margin: 20px;
-}
-
-.PopUp2{
+.PopUp2 {
     height: 500px;
     width: 500px;
     z-index: 999;
     background-color: white;
+    color: black;
     border-radius: 40px;
-    border: 1px solid black;
+    border: 2px solid black;
     position: absolute;
     top: 190%;
     left: 50%;
-    transform: translate(-50%, -70%);
-
+    transform: translate(-50%, 130%);
 }
 
-.Tier img{
+.Tier img {
     height: 120px;
     width: 120px;
 }
 
-.close{
+.close {
     position: absolute;
     top: 0;
     right: 0;
@@ -161,18 +171,18 @@
     cursor: pointer;
 }
 
-h1{
+h1 {
     text-align: center;
     margin-top: 5rem;
 }
 
-.Submit{
+.Submit {
     margin: 3rem;
     height: 3rem;
     width: 10rem;
     border-radius: 10px;
 }
 
-.jump{
+.jump {
     height: 1rem;
 }
