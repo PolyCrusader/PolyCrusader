@@ -10,7 +10,7 @@ import leaf from './assets/iceberg/leaf.png';
 import iceberg from './assets/iceberg/iceberg.png';
 import thermometer from './assets/iceberg/thermometer.png';
 import corail from './assets/iceberg/corail.png';
-import videoSource from './assets/progressingbar.webm';
+import videoSource from './assets/Branche.webm';
 
 
 const objectsTypes = {
@@ -36,7 +36,7 @@ const dimTher = 200;
 function IcebergGame() {
     const [net, setNet] = useState({ positionX: window.innerWidth * 0.5, positionY: window.innerHeight * 0.9, captured: [], hitbox: dimXNet / 2, src: netImg });
     const [objects, setObjects] = useState([]);
-    const [tmp, setTmp] = useState(0.1);
+    const [tmp, setTmp] = useState(0.2);
     const [hp, setHp] = useState(100);
     const [timerAdd, setTimerAdd] = useState(0);
     const [speed, setSpeed] = useState(5);
@@ -72,7 +72,7 @@ function IcebergGame() {
                 setLastObjectStreak(lastObjectStreak + 1);
             }
         }
-        const left = (Math.random() * (window.innerWidth - dimObject*2)) + dimObject;
+        const left = (Math.random() * (window.innerWidth - dimObject * 2)) + dimObject;
         return { id: Date.now(), type: randomObject.type, src: randomObject.src, positionX: left, positionY: 0.0 };
     }
 
@@ -81,6 +81,9 @@ function IcebergGame() {
             objects[i].positionY += speed;
             if (objects[i].positionY > net.positionY && (objects[i].positionX >= (net.positionX - net.hitbox) && objects[i].positionX <= (net.positionX + net.hitbox))) {
                 addToNet(objects[i]);
+                if(net.captured.length > 10) {
+                    setNet({ ...net, captured: net.captured.slice(1) });
+                }
                 objects.splice(i, 1);
                 i--;
             }
@@ -133,7 +136,7 @@ function IcebergGame() {
             const video = videoRef.current;
             video.play();
             const handleVideoEnded = () => {
-                setTmp(prevTmp => prevTmp - 0.05);
+                setTmp(prevTmp => prevTmp - 0.007);
                 video.play();
             };
             video.addEventListener('ended', handleVideoEnded);
@@ -142,10 +145,10 @@ function IcebergGame() {
 
             const interval = setInterval(() => {
                 updateObjects();
-                let percent = 1 - (easeInOutQuad(elapsedTime / 150000));
-                setSpeed(5 + (1 - percent) * 18);
+                let percent = 1 - (easeInOutQuad(elapsedTime / 130000));
+                setSpeed(5 + (1 - percent) * 17);
                 setTimerAdd(prevTimerAdd => {
-                    if (prevTimerAdd >= percent * 1600 + 250) {
+                    if (prevTimerAdd >= percent * 1700 + 250) {
                         setObjects(prevObjects => [...prevObjects, generateObject()]);
                         return 0;
                     }
@@ -184,7 +187,7 @@ function IcebergGame() {
     function start() {
         setStartGame(true);
         const video = videoRef.current;
-        video.playbackRate = video.duration / 12;
+        video.playbackRate = video.duration / 5;
         video.play();
     }
 
@@ -194,8 +197,10 @@ function IcebergGame() {
             <div className="gameOverall" style={{ background: `linear-gradient(to bottom, ${colorBackground()}, rgb(130, 180, 255))` }}>
                 <div className="rectangle" style={{ position: 'absolute', right: 188.5, top: 250 - (tmp > 0 ? tmp * 25 : 0), height: tmp > 0 ? tmp * 25 : 0, width: 25, backgroundColor: 'red' }}></div>
                 <img src={thermometer} style={{ position: 'absolute', right: 100, top: 100, height: dimTher, width: dimTher }} />
-                <p style={{ position: 'absolute', right: 100, top: 100 + dimTher * 0.7, height: dimTher, width: dimTher }}>{roundToTenth(tmp + 24.9)}</p>
+                <p style={{ position: 'absolute', right: 100, top: 100 + dimTher * 0.7, height: dimTher, width: dimTher }}>{roundToTenth(tmp + 24.8)}</p>
+
                 <img src={iceberg} style={{ position: 'absolute', left: innerWidth / 2 - dimIceberg / 2, top: innerHeight * (0.2 + 0.8 * (100 - hp) / 100), height: dimIceberg, width: dimIceberg }} />
+
                 {Array.from({ length: Math.floor(window.innerWidth / dimWave + 5) }).map((_, i) => (
                     <img key={i} src={water_darkshade} style={{ position: 'absolute', left: i * 460 + Math.cos(elapsedTime / 1000) * 10 - 10, top: innerHeight - dimWave / 2 + Math.sin(elapsedTime / 1000) * 10, width: dimWave, height: dimWave }} />
                 ))}
@@ -213,9 +218,11 @@ function IcebergGame() {
                 {Array.from({ length: Math.floor(window.innerWidth / dimWave + 5) }).map((_, i) => (
                     <img key={i} src={water_lightshade} style={{ position: 'absolute', left: i * 460 - 250 + Math.cos(elapsedTime / 1000 + 0.6) * 10 - 10, top: innerHeight - dimWave / 2 + Math.sin(elapsedTime / 1000 + 0.6) * 10, width: dimWave, height: dimWave + 50 }} />
                 ))}
-                <video ref={videoRef} muted>
+
+                <video ref={videoRef} muted style={{ transform: "scaleY(-1)" }}>
                     <source src={videoSource} type="video/webm" />
                 </video>
+
                 <Loose time={elapsedTime} tmp={tmp} hp={hp} setHp={setHp} setElapsedTime={setElapsedTime} setTmp={setTmp} setObjects={setObjects} setNet={setNet} />
             </div>
 
@@ -250,9 +257,9 @@ function Loose({ time, tmp, hp, setHp, setElapsedTime, setTmp, setObjects, setNe
                 <div className="loose">
                     <h1>Dommage !</h1>
                     <p>Temps: {Math.floor(time / 1000)} seconds</p>
-                    <p>Temperature: {roundToTenth(tmp + 24.9)}</p>
+                    <p>Temperature: {roundToTenth(tmp + 24.8)}</p>
                     <button onClick={() => {
-                        setHp(100); setElapsedTime(0); setTmp(0.1); setObjects([]);
+                        setHp(100); setElapsedTime(0); setTmp(0.2); setObjects([]);
                         setNet({ positionX: window.innerWidth * 0.5, positionY: window.innerHeight * 0.9, captured: [], hitbox: dimXNet / 2, src: netImg });
                     }}>Recommencer</button>
                 </div>
