@@ -10,14 +10,12 @@ function PopUp({card,onClose,id}){
         name='PopUp2';
     }
     return (
-        
-            
         <div className={name}>
             <button className='close' onClick={onClose}>X</button>
-            <img src={card.image} alt={card.name} />
+            <img src={card.image} alt={card.name}/>
+            <h3>{card.action}</h3>
             <p>{card.description}</p>
         </div>
-        
     )
 }
 

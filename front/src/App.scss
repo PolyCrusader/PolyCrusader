@@ -25,13 +25,13 @@
 
 .right-div{
   right: 0;
-  cursor: url(./assets/check-o.svg), auto;
+  cursor: url(./assets/check-o.svg) 12 12, auto;
   background-color: rgba(0, 255, 0, 0.3);
 }
 
 .left-div{
   left: 0;
-  cursor: url(./assets/close-o.svg), auto;
+  cursor: url(./assets/close-o.svg) 12 12, auto;
   background-color: rgba(255, 0, 0, 0.3);
 }
 

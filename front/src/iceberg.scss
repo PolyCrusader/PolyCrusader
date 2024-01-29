@@ -1,13 +1,100 @@
-.gameOverall{
+.gameOverall {
     height: 100vh;
     width: 100vw;
-    background: linear-gradient(to bottom, rgb(86, 172, 230), rgb(63, 127, 170));
-    overflow-x: hidden !important;
-    overflow-y: hidden !important;
+    overflow: hidden !important;
 }
 
-.loose{
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 25px;
+.loose {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    width: 20%;
+    background-color: #00000080;
     border: 5px solid white;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    padding-bottom: 30px;
+}
+
+.devTime {
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    background-color: #00000050;
+    border-radius: 20px;
+    padding: 10px;
+    backdrop-filter: blur(10px);
+}
+
+h1 {
+    padding: 30px;
+    margin: 0px;
+    line-height: 1.2;
+}
+
+.intro {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    width: 30%;
+    background-color: #00000080;
+    border: 5px solid white;
+    border-radius: 25px;
+    padding-bottom: 30px;
+    backdrop-filter: blur(10px);
+}
+
+.intro h1 {
+    background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet, red, orange, yellow, green, blue, indigo, violet);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: rainbow 10s linear infinite;
+}
+
+@keyframes rainbow {
+    0% {
+        background-position: 100%;
+    }
+
+    100% {
+        background-position: 0%;
+    }
+}
+
+.rules .element {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: left;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-left: 25px;
+    font-size: 20px;
+    background-color: #00000050;
+}
+
+.rules .element img {
+    margin-right: 25px;
+}
+
+button {
+    margin: 10px;
+}
+
+video {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 33%;
+    z-index: 1000000;
 }
